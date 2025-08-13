@@ -46,6 +46,15 @@
         .animate-fade-in {
             animation: fadeIn 1.2s ease-in;
         }
+
+        /* Custom styles for the mobile menu transition */
+        .mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.3s ease-out;
+        }
+        .mobile-menu.open {
+            transform: translateX(0);
+        }
     </style>
 </head>
 <body class="bg-gray-900 text-gray-100 font-sans leading-relaxed">
@@ -54,7 +63,7 @@
     <header class="bg-gray-800 bg-opacity-90 backdrop-blur-md sticky top-0 z-50 shadow-lg rounded-b-xl">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
             <!-- Your Name or Logo -->
-            <a href="#" class="text-2xl font-bold text-indigo-400 hover:text-indigo-300 transition-colors">Sameera Chathuranga</a>
+            <a href="#" class="text-2xl font-bold text-teal-400 hover:text-teal-300 transition-colors">Sameera Chathuranga</a>
             <!-- Navigation Links -->
             <div class="space-x-4 text-lg hidden md:block">
                 <a href="#about" class="text-gray-300 hover:text-white transition-colors">About</a>
@@ -63,7 +72,7 @@
                 <a href="#contact" class="text-gray-300 hover:text-white transition-colors">Contact</a>
             </div>
             <!-- Mobile Menu Button -->
-            <button class="md:hidden text-gray-300 hover:text-white focus:outline-none">
+            <button id="mobile-menu-button" class="md:hidden text-gray-300 hover:text-white focus:outline-none">
                 <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                 </svg>
@@ -71,13 +80,33 @@
         </nav>
     </header>
 
+    <!-- Mobile Menu (Hidden by default) -->
+    <div id="mobile-menu" class="fixed top-0 right-0 h-full w-64 bg-gray-900 bg-opacity-95 backdrop-blur-lg shadow-2xl z-50 mobile-menu">
+        <div class="p-6">
+            <div class="flex justify-between items-center mb-8">
+                <span class="text-2xl font-bold text-teal-400">Menu</span>
+                <button id="mobile-menu-close" class="text-gray-300 hover:text-white focus:outline-none">
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+            <nav class="flex flex-col space-y-4 text-lg">
+                <a href="#about" class="text-gray-300 hover:text-white transition-colors">About</a>
+                <a href="#story" class="text-gray-300 hover:text-white transition-colors">My Story</a>
+                <a href="#skills" class="text-gray-300 hover:text-white transition-colors">Skills</a>
+                <a href="#contact" class="text-gray-300 hover:text-white transition-colors">Contact</a>
+            </nav>
+        </div>
+    </div>
+
     <main>
         <!-- Hero Section -->
         <section id="hero" class="relative min-h-screen flex items-center justify-center p-6 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1542435503-9d414f04c554?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');">
             <div class="absolute inset-0 bg-black opacity-60"></div>
             <div class="relative text-center max-w-4xl mx-auto p-8 rounded-3xl bg-gray-800 bg-opacity-70 backdrop-blur-sm shadow-2xl">
                 <!-- Your Profile Photo -->
-                <img src="https://raw.githubusercontent.com/sameera-chathuranga/My-Biography/refs/heads/main/e206552e-7df7-4099-aa6e-933fa59aa77d-1_all_18051.jpg" alt="Sameera Chathuranga" class="mx-auto rounded-full w-40 h-40 object-cover border-4 border-indigo-500 shadow-xl mb-6 transform transition-transform duration-500 hover:scale-105 animate-fade-in">
+                <img src="https://raw.githubusercontent.com/sameera-chathuranga/My-Biography/refs/heads/main/e206552e-7df7-4099-aa6e-933fa59aa77d-1_all_18051.jpg" alt="Sameera Chathuranga" class="mx-auto rounded-full w-40 h-40 object-cover border-4 border-teal-500 shadow-xl mb-6 transform transition-transform duration-500 hover:scale-105 animate-fade-in">
                 <!-- Your Name & Headline -->
                 <h1 class="text-6xl md:text-7xl font-extrabold tracking-tight text-white animate-fade-in-down">
                     Hello, I'm Sameera Chathuranga
@@ -85,7 +114,7 @@
                 <p class="text-2xl md:text-3xl text-gray-300 mt-4 animate-fade-in-up">
                     A passionate web developer and creative designer.
                 </p>
-                <a href="#about" class="mt-8 inline-block px-8 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-full shadow-lg transition-all duration-300 transform hover:scale-110">
+                <a href="#about" class="mt-8 inline-block px-8 py-3 bg-teal-600 hover:bg-teal-700 text-white font-bold rounded-full shadow-lg transition-all duration-300 transform hover:scale-110">
                     Learn More
                 </a>
             </div>
@@ -94,7 +123,7 @@
         <!-- About Me Section -->
         <section id="about" class="py-20 bg-gray-900">
             <div class="container mx-auto px-6 max-w-4xl">
-                <h2 class="text-5xl font-bold text-center text-white mb-12 border-b-4 border-indigo-600 pb-2 inline-block mx-auto animate-fade-in">
+                <h2 class="text-5xl font-bold text-center text-white mb-12 border-b-4 border-teal-600 pb-2 inline-block mx-auto animate-fade-in">
                     About Me
                 </h2>
                 <div class="bg-gray-800 rounded-3xl shadow-xl p-8 md:p-12 text-center text-lg animate-fade-in-up">
@@ -112,7 +141,7 @@
         <!-- My Story/Timeline Section -->
         <section id="story" class="py-20 bg-gray-800">
             <div class="container mx-auto px-6 max-w-5xl">
-                <h2 class="text-5xl font-bold text-center text-white mb-12 border-b-4 border-indigo-600 pb-2 inline-block mx-auto animate-fade-in">
+                <h2 class="text-5xl font-bold text-center text-white mb-12 border-b-4 border-teal-600 pb-2 inline-block mx-auto animate-fade-in">
                     My Story
                 </h2>
                 <!-- Timeline/Story Content -->
@@ -122,7 +151,7 @@
                     <!-- Timeline Item 1 -->
                     <div class="flex flex-col md:flex-row items-center justify-between my-8 animate-fade-in-up">
                         <div class="md:w-1/2 p-4 md:p-8 text-center md:text-right bg-gray-900 rounded-2xl shadow-xl transform transition-transform duration-500 hover:scale-105">
-                            <h3 class="text-2xl font-bold text-indigo-400 mb-2">The Beginning (2015)</h3>
+                            <h3 class="text-2xl font-bold text-teal-400 mb-2">The Beginning (2015)</h3>
                             <p class="text-gray-300 text-sm">
                                 Started my journey with my first "Hello, World!" in a college computer science class. Fell in love with coding.
                             </p>
@@ -134,7 +163,7 @@
                     <div class="flex flex-col md:flex-row items-center justify-between my-8 animate-fade-in-up">
                         <div class="md:w-1/2"></div>
                         <div class="md:w-1/2 p-4 md:p-8 text-center md:text-left bg-gray-900 rounded-2xl shadow-xl transform transition-transform duration-500 hover:scale-105">
-                            <h3 class="text-2xl font-bold text-indigo-400 mb-2">First Job (2018)</h3>
+                            <h3 class="text-2xl font-bold text-teal-400 mb-2">First Job (2018)</h3>
                             <p class="text-gray-300 text-sm">
                                 Landed my first front-end developer role, focusing on building e-commerce websites with React.
                             </p>
@@ -144,7 +173,7 @@
                     <!-- Timeline Item 3 -->
                     <div class="flex flex-col md:flex-row items-center justify-between my-8 animate-fade-in-up">
                         <div class="md:w-1/2 p-4 md:p-8 text-center md:text-right bg-gray-900 rounded-2xl shadow-xl transform transition-transform duration-500 hover:scale-105">
-                            <h3 class="text-2xl font-bold text-indigo-400 mb-2">Freelance Journey (2022)</h3>
+                            <h3 class="text-2xl font-bold text-teal-400 mb-2">Freelance Journey (2022)</h3>
                             <p class="text-gray-300 text-sm">
                                 Began my freelance career, helping small businesses create a strong online presence.
                             </p>
@@ -158,17 +187,17 @@
         <!-- Skills Section -->
         <section id="skills" class="py-20 bg-gray-900">
             <div class="container mx-auto px-6 max-w-4xl">
-                <h2 class="text-5xl font-bold text-center text-white mb-12 border-b-4 border-indigo-600 pb-2 inline-block mx-auto animate-fade-in">
+                <h2 class="text-5xl font-bold text-center text-white mb-12 border-b-4 border-teal-600 pb-2 inline-block mx-auto animate-fade-in">
                     My Skills
                 </h2>
                 <div class="flex flex-wrap justify-center gap-6 animate-fade-in-up">
                     <!-- Example Skill Badges -->
-                    <span class="bg-gray-800 text-indigo-400 text-lg font-semibold px-6 py-3 rounded-full shadow-md transition-all duration-300 transform hover:scale-110">HTML & CSS</span>
-                    <span class="bg-gray-800 text-indigo-400 text-lg font-semibold px-6 py-3 rounded-full shadow-md transition-all duration-300 transform hover:scale-110">JavaScript (ES6+)</span>
-                    <span class="bg-gray-800 text-indigo-400 text-lg font-semibold px-6 py-3 rounded-full shadow-md transition-all duration-300 transform hover:scale-110">React</span>
-                    <span class="bg-gray-800 text-indigo-400 text-lg font-semibold px-6 py-3 rounded-full shadow-md transition-all duration-300 transform hover:scale-110">Tailwind CSS</span>
-                    <span class="bg-gray-800 text-indigo-400 text-lg font-semibold px-6 py-3 rounded-full shadow-md transition-all duration-300 transform hover:scale-110">Node.js & Express</span>
-                    <span class="bg-gray-800 text-indigo-400 text-lg font-semibold px-6 py-3 rounded-full shadow-md transition-all duration-300 transform hover:scale-110">Git & GitHub</span>
+                    <span class="bg-gray-800 text-teal-400 text-lg font-semibold px-6 py-3 rounded-full shadow-md transition-all duration-300 transform hover:scale-110">HTML & CSS</span>
+                    <span class="bg-gray-800 text-teal-400 text-lg font-semibold px-6 py-3 rounded-full shadow-md transition-all duration-300 transform hover:scale-110">JavaScript (ES6+)</span>
+                    <span class="bg-gray-800 text-teal-400 text-lg font-semibold px-6 py-3 rounded-full shadow-md transition-all duration-300 transform hover:scale-110">React</span>
+                    <span class="bg-gray-800 text-teal-400 text-lg font-semibold px-6 py-3 rounded-full shadow-md transition-all duration-300 transform hover:scale-110">Tailwind CSS</span>
+                    <span class="bg-gray-800 text-teal-400 text-lg font-semibold px-6 py-3 rounded-full shadow-md transition-all duration-300 transform hover:scale-110">Node.js & Express</span>
+                    <span class="bg-gray-800 text-teal-400 text-lg font-semibold px-6 py-3 rounded-full shadow-md transition-all duration-300 transform hover:scale-110">Git & GitHub</span>
                 </div>
             </div>
         </section>
@@ -176,7 +205,7 @@
         <!-- Contact Section -->
         <section id="contact" class="py-20 bg-gray-800">
             <div class="container mx-auto px-6 max-w-4xl">
-                <h2 class="text-5xl font-bold text-center text-white mb-12 border-b-4 border-indigo-600 pb-2 inline-block mx-auto animate-fade-in">
+                <h2 class="text-5xl font-bold text-center text-white mb-12 border-b-4 border-teal-600 pb-2 inline-block mx-auto animate-fade-in">
                     Get in Touch
                 </h2>
                 <div class="bg-gray-900 rounded-3xl p-8 md:p-12 shadow-xl text-center animate-fade-in-up">
@@ -186,22 +215,22 @@
                     <form action="https://formspree.io/f/xgvzdqda" method="POST" class="space-y-6 text-left">
                         <div>
                             <label for="name" class="block text-gray-300 font-bold mb-2">Name</label>
-                            <input type="text" id="name" name="name" placeholder="Your Name" required class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                            <input type="text" id="name" name="name" placeholder="Your Name" required class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-teal-500">
                         </div>
                         <div>
                             <label for="email" class="block text-gray-300 font-bold mb-2">Email</label>
-                            <input type="email" id="email" name="email" placeholder="youremail@example.com" required class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                            <input type="email" id="email" name="email" placeholder="youremail@example.com" required class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-teal-500">
                         </div>
                         <div>
                             <label for="subject" class="block text-gray-300 font-bold mb-2">Subject</label>
-                            <input type="text" id="subject" name="subject" placeholder="What's this about?" required class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                            <input type="text" id="subject" name="subject" placeholder="What's this about?" required class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-teal-500">
                         </div>
                         <div>
                             <label for="message" class="block text-gray-300 font-bold mb-2">Message</label>
-                            <textarea id="message" name="message" rows="5" placeholder="Your message..." required class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"></textarea>
+                            <textarea id="message" name="message" rows="5" placeholder="Your message..." required class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-teal-500"></textarea>
                         </div>
                         <div class="text-center">
-                            <button type="submit" class="px-8 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-full shadow-lg transition-all duration-300 transform hover:scale-110">
+                            <button type="submit" class="px-8 py-3 bg-teal-600 hover:bg-teal-700 text-white font-bold rounded-full shadow-lg transition-all duration-300 transform hover:scale-110">
                                 Send Message
                             </button>
                         </div>
@@ -216,8 +245,31 @@
         <p>&copy; 2024 Sameera Chathuranga. All Rights Reserved.</p>
     </footer>
 
+    <!-- JavaScript to toggle mobile menu visibility -->
+    <script>
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuClose = document.getElementById('mobile-menu-close');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('open');
+        });
+
+        mobileMenuClose.addEventListener('click', () => {
+            mobileMenu.classList.remove('open');
+        });
+
+        // Close menu when a link is clicked
+        const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('open');
+            });
+        });
+    </script>
 </body>
 </html>
+
 
 
 
