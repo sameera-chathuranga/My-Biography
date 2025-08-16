@@ -75,6 +75,20 @@
             height: 100%;
             z-index: 0;
         }
+
+        /* Styling for the About Me section background */
+        .about-bg {
+            background-image: url('https://raw.githubusercontent.com/sameera-chathuranga/My-Biography/c264d9e1bea71ac3e9cfc6eb5ffdddef04320b6f/2e71981d-d204-4cb6-b03f-7be50e77850f.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        /* Styling for the Professional Experience section background */
+        .experience-bg {
+            background-image: url('https://raw.githubusercontent.com/sameera-chathuranga/My-Biography/153c9b9c117272b77c014cd1773b7cd33f29a9d0/221780-0-73873500-1746513580-race_compet_starting_sucess_leader_prepar_challenge-100746066-orig%20(1).webp');
+            background-size: cover;
+            background-position: center;
+        }
     </style>
 </head>
 <body class="bg-gray-900 text-gray-100 font-sans leading-relaxed">
@@ -158,12 +172,15 @@
         </section>
 
         <!-- About Me Section -->
-        <section id="about" class="py-20 bg-gray-900">
-            <div class="container mx-auto px-6 max-w-4xl">
+        <section id="about" class="relative py-20 about-bg">
+            <!-- Overlay with reduced opacity for a clearer background image -->
+            <div class="absolute inset-0 bg-gray-900 opacity-70 z-0"></div>
+            <div class="relative z-10 container mx-auto px-6 max-w-4xl">
                 <h2 class="text-5xl font-bold text-center text-white mb-12 border-b-4 border-teal-600 pb-2 inline-block mx-auto animate-fade-in">
                     About Me
                 </h2>
-                <div class="bg-gray-800 rounded-3xl shadow-xl p-8 md:p-12 text-center text-lg animate-fade-in-up">
+                <!-- Text area with reduced opacity and backdrop blur -->
+                <div class="bg-gray-800 bg-opacity-50 backdrop-blur-sm rounded-3xl shadow-xl p-8 md:p-12 text-center text-lg animate-fade-in-up">
                     <p class="mb-4 text-gray-200">
                         I am Sameera Chathuranga, a results-driven Cost Account Executive with a BSc (Hons) in Accountancy and Finance. Skilled in financial analysis and costing, I combine strong academic knowledge with hands-on experience to enhance organisational financial performance.
                     </p>
@@ -175,90 +192,76 @@
         </section>
 
         <!-- Professional Experience Section -->
-        <section id="experience" class="py-20 bg-gray-800">
-            <div class="container mx-auto px-6 max-w-5xl">
-                <h2 class="text-5xl font-bold text-center text-white mb-12 border-b-4 border-teal-600 pb-2 inline-block mx-auto animate-fade-in">
+        <section id="experience" class="relative py-20 experience-bg">
+            <!-- Overlay with reduced opacity for a clearer background image -->
+            <div class="absolute inset-0 bg-gray-900 opacity-70 z-0"></div>
+            <div class="relative z-10 container mx-auto px-6 max-w-5xl">
+                <h2 class="text-5xl font-bold text-center text-white mb-12 animate-fade-in">
                     Professional Experience
                 </h2>
-                <div class="relative">
-                    <div class="absolute left-1/2 -ml-0.5 w-1 bg-gray-600 h-full hidden md:block"></div>
-                    <div class="flex flex-col md:flex-row items-center justify-between my-8 animate-fade-in-up">
-                        <div class="md:w-1/2 p-4 md:p-8 text-center md:text-right bg-gray-900 rounded-2xl shadow-xl transform transition-transform duration-500 hover:scale-105">
-                            <h3 class="text-2xl font-bold text-teal-400 mb-2">Finance Trainee</h3>
-                            <p class="text-gray-200 text-sm">Sri Lanka Port Authority | Mar 2023 - Sep 2023</p>
-                            <ul class="list-disc list-inside text-left text-gray-300 text-sm mt-4 md:pl-8">
-                                <li>Assisted in preparing and analysing financial statements, ensuring accuracy and compliance.</li>
-                                <li>Supported costing, budgeting, and variance analysis.</li>
-                                <li>Processed and reconciled financial transactions, maintaining accurate records.</li>
-                                <li>Collaborated on special projects, audits, and month-end closing activities.</li>
-                            </ul>
-                        </div>
-                        <div class="md:w-1/2"></div>
+                <div class="space-y-8">
+                    <!-- Finance Trainee Card -->
+                    <div class="p-6 md:p-8 text-center bg-gray-900 bg-opacity-50 backdrop-blur-sm rounded-2xl shadow-xl transform transition-transform duration-500 hover:scale-105 animate-fade-in-up">
+                        <h3 class="text-2xl font-bold text-teal-400 mb-2">Finance Trainee</h3>
+                        <p class="text-gray-200 text-sm">Sri Lanka Port Authority | Mar 2023 - Sep 2023</p>
+                        <ul class="list-disc list-inside text-left text-gray-300 text-sm mt-4 md:pl-8">
+                            <li>Assisted in preparing and analysing financial statements, ensuring accuracy and compliance.</li>
+                            <li>Supported costing, budgeting, and variance analysis.</li>
+                            <li>Processed and reconciled financial transactions, maintaining accurate records.</li>
+                            <li>Collaborated on special projects, audits, and month-end closing activities.</li>
+                        </ul>
                     </div>
-                    <div class="flex flex-col md:flex-row items-center justify-between my-8 animate-fade-in-up">
-                        <div class="md:w-1/2"></div>
-                        <div class="md:w-1/2 p-4 md:p-8 text-center md:text-left bg-gray-900 rounded-2xl shadow-xl transform transition-transform duration-500 hover:scale-105">
-                            <h3 class="text-2xl font-bold text-teal-400 mb-2">Cost Account Executive</h3>
-                            <p class="text-gray-200 text-sm">Star Holdings International PVT Ltd | Nov 2023 - Present</p>
-                            <ul class="list-disc list-inside text-left text-gray-300 text-sm mt-4 md:pl-8">
-                                <li>Prepared and analysed cost reports to support financial planning and control.</li>
-                                <li>Monitored, tracked, and reported on cost variances to ensure budget adherence.</li>
-                                <li>Collaborated with departments to collect and validate data for cost allocation.</li>
-                                <li>Supported management in pricing strategies by providing detailed cost breakdowns.</li>
-                                <li>Contributed to improving cost efficiency and profitability through analysis and recommendations.</li>
-                            </ul>
-                        </div>
+                    <!-- Cost Account Executive Card -->
+                    <div class="p-6 md:p-8 text-center bg-gray-900 bg-opacity-50 backdrop-blur-sm rounded-2xl shadow-xl transform transition-transform duration-500 hover:scale-105 animate-fade-in-up">
+                        <h3 class="text-2xl font-bold text-teal-400 mb-2">Cost Account Executive</h3>
+                        <p class="text-gray-200 text-sm">Star Holdings International PVT Ltd | Nov 2023 - Present</p>
+                        <ul class="list-disc list-inside text-left text-gray-300 text-sm mt-4 md:pl-8">
+                            <li>Prepared and analysed cost reports to support financial planning and control.</li>
+                            <li>Monitored, tracked, and reported on cost variances to ensure budget adherence.</li>
+                            <li>Collaborated with departments to collect and validate data for cost allocation.</li>
+                            <li>Supported management in pricing strategies by providing detailed cost breakdowns.</li>
+                            <li>Contributed to improving cost efficiency and profitability through analysis and recommendations.</li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </section>
-
+        
         <!-- Education Section -->
         <section id="education" class="py-20 bg-gray-900">
             <div class="container mx-auto px-6 max-w-5xl">
-                <h2 class="text-5xl font-bold text-center text-white mb-12 border-b-4 border-teal-600 pb-2 inline-block mx-auto animate-fade-in">
+                <h2 class="text-5xl font-bold text-center text-white mb-12 animate-fade-in">
                     Education
                 </h2>
-                <div class="relative">
-                    <div class="absolute left-1/2 -ml-0.5 w-1 bg-gray-600 h-full hidden md:block"></div>
-                    <div class="flex flex-col md:flex-row items-center justify-between my-8 animate-fade-in-up">
-                        <div class="md:w-1/2 p-4 md:p-8 text-center md:text-right bg-gray-800 rounded-2xl shadow-xl transform transition-transform duration-500 hover:scale-105">
-                            <h3 class="text-2xl font-bold text-teal-400 mb-2">G.C.E Ordinary Level Examination</h3>
-                            <p class="text-gray-200 text-sm">G/Batemulla National School | 2013</p>
-                            <p class="text-gray-200 text-sm mt-2">2 A, 5 B (Including Maths), 2 C</p>
-                        </div>
-                        <div class="md:w-1/2"></div>
+                <div class="space-y-8">
+                    <!-- G.C.E O/L Card -->
+                    <div class="p-6 md:p-8 text-center bg-gray-800 rounded-2xl shadow-xl transform transition-transform duration-500 hover:scale-105 animate-fade-in-up">
+                        <h3 class="text-2xl font-bold text-teal-400 mb-2">G.C.E Ordinary Level Examination</h3>
+                        <p class="text-gray-200 text-sm">G/Batemulla National School | 2013</p>
+                        <p class="text-gray-200 text-sm mt-2">2 A, 5 B (Including Maths), 2 C</p>
                     </div>
-                    <div class="flex flex-col md:flex-row items-center justify-between my-8 animate-fade-in-up">
-                        <div class="md:w-1/2"></div>
-                        <div class="md:w-1/2 p-4 md:p-8 text-center md:text-left bg-gray-800 rounded-2xl shadow-xl transform transition-transform duration-500 hover:scale-105">
-                            <h3 class="text-2xl font-bold text-teal-400 mb-2">G.C.E Advanced Level Examination</h3>
-                            <p class="text-gray-200 text-sm">G/Batemulla National School | 2017</p>
-                            <p class="text-gray-200 text-sm mt-2">2 A and 1 B with district rank 284</p>
-                        </div>
+                    <!-- G.C.E A/L Card -->
+                    <div class="p-6 md:p-8 text-center bg-gray-800 rounded-2xl shadow-xl transform transition-transform duration-500 hover:scale-105 animate-fade-in-up">
+                        <h3 class="text-2xl font-bold text-teal-400 mb-2">G.C.E Advanced Level Examination</h3>
+                        <p class="text-gray-200 text-sm">G/Batemulla National School | 2017</p>
+                        <p class="text-gray-200 text-sm mt-2">2 A and 1 B with district rank 284</p>
                     </div>
-                    <div class="flex flex-col md:flex-row items-center justify-between my-8 animate-fade-in-up">
-                        <div class="md:w-1/2 p-4 md:p-8 text-center md:text-right bg-gray-800 rounded-2xl shadow-xl transform transition-transform duration-500 hover:scale-105">
-                            <h3 class="text-2xl font-bold text-teal-400 mb-2">CA Sri Lanka Business Level I Examination</h3>
-                            <p class="text-gray-200 text-sm">Sep 2017 - Mar 2018</p>
-                            <p class="text-gray-200 text-sm mt-2">Successfully completed the examination.</p>
-                        </div>
-                        <div class="md:w-1/2"></div>
+                    <!-- CA Sri Lanka Card -->
+                    <div class="p-6 md:p-8 text-center bg-gray-800 rounded-2xl shadow-xl transform transition-transform duration-500 hover:scale-105 animate-fade-in-up">
+                        <h3 class="text-2xl font-bold text-teal-400 mb-2">CA Sri Lanka Business Level I Examination</h3>
+                        <p class="text-gray-200 text-sm">Sep 2017 - Mar 2018</p>
+                        <p class="text-gray-200 text-sm mt-2">Successfully completed the examination.</p>
                     </div>
-                    <div class="flex flex-col md:flex-row items-center justify-between my-8 animate-fade-in-up">
-                        <div class="md:w-1/2"></div>
-                        <div class="md:w-1/2 p-4 md:p-8 text-center md:text-left bg-gray-800 rounded-2xl shadow-xl transform transition-transform duration-500 hover:scale-105">
-                            <h3 class="text-2xl font-bold text-teal-400 mb-2">B.Sc. (Hons) Accountancy & Business Finance</h3>
-                            <p class="text-gray-200 text-sm">Wayamba University of Sri Lanka | Sep 2019 - Sep 2023</p>
-                        </div>
+                    <!-- Wayamba University Card -->
+                    <div class="p-6 md:p-8 text-center bg-gray-800 rounded-2xl shadow-xl transform transition-transform duration-500 hover:scale-105 animate-fade-in-up">
+                        <h3 class="text-2xl font-bold text-teal-400 mb-2">B.Sc. (Hons) Accountancy & Business Finance</h3>
+                        <p class="text-gray-200 text-sm">Wayamba University of Sri Lanka | Sep 2019 - Sep 2023</p>
                     </div>
-                    <div class="flex flex-col md:flex-row items-center justify-between my-8 animate-fade-in-up">
-                        <div class="md:w-1/2 p-4 md:p-8 text-center md:text-right bg-gray-800 rounded-2xl shadow-xl transform transition-transform duration-500 hover:scale-105">
-                            <h3 class="text-2xl font-bold text-teal-400 mb-2">Certified Management Accountant (CMA)</h3>
-                            <p class="text-gray-200 text-sm">CMA Sri Lanka | May 2022 - Present</p>
-                            <p class="text-gray-200 text-sm mt-2">Successfully completed the managerial level examination.</p>
-                        </div>
-                        <div class="md:w-1/2"></div>
+                    <!-- CMA Card -->
+                    <div class="p-6 md:p-8 text-center bg-gray-800 rounded-2xl shadow-xl transform transition-transform duration-500 hover:scale-105 animate-fade-in-up">
+                        <h3 class="text-2xl font-bold text-teal-400 mb-2">Certified Management Accountant (CMA)</h3>
+                        <p class="text-gray-200 text-sm">CMA Sri Lanka | May 2022 - Present</p>
+                        <p class="text-gray-200 text-sm mt-2">Successfully completed the managerial level examination.</p>
                     </div>
                 </div>
             </div>
@@ -491,17 +494,21 @@
                     particles.push(new Particle());
                 }
             }
-
-            // Draws lines between close particles
+            
+            // Function to draw lines between close particles
             function connectParticles() {
+                let opacityValue = 1;
                 for (let a = 0; a < particles.length; a++) {
                     for (let b = a; b < particles.length; b++) {
                         const distance = Math.sqrt(
                             (particles[a].x - particles[b].x) ** 2 +
                             (particles[a].y - particles[b].y) ** 2
                         );
+                        // If particles are close, draw a line between them
                         if (distance < maxDistance) {
-                            ctx.strokeStyle = `rgba(20, 184, 166, ${1 - distance / maxDistance})`;
+                            // Calculate opacity based on distance (closer = more opaque)
+                            opacityValue = 1 - (distance / maxDistance);
+                            ctx.strokeStyle = `rgba(20, 184, 166, ${opacityValue})`;
                             ctx.lineWidth = 1;
                             ctx.beginPath();
                             ctx.moveTo(particles[a].x, particles[a].y);
@@ -512,29 +519,28 @@
                 }
             }
 
-            // The main animation loop
+            // Main animation loop
             function animate() {
-                // Clear the entire canvas
+                // Clear the canvas for the next frame
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
-
                 // Update and draw each particle
-                particles.forEach(particle => {
-                    particle.update();
-                    particle.draw();
-                });
-
-                // Connect particles with lines
+                for (let i = 0; i < particles.length; i++) {
+                    particles[i].update();
+                    particles[i].draw();
+                }
+                // Connect the particles with lines
                 connectParticles();
-
                 // Request the next animation frame
                 requestAnimationFrame(animate);
             }
 
             // Initial setup on page load
-            initParticles();
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-            animate();
+            window.onload = () => {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+                initParticles(); // Populate the particle array
+                animate(); // Start the animation loop
+            };
         });
     </script>
 </body>
