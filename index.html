@@ -11,17 +11,21 @@
     <meta property="og:image" content="https://raw.githubusercontent.com/sameera-chathuranga/My-Biography/refs/heads/main/e206552e-7df7-4099-aa6e-933fa59aa77d-1_all_18051.jpg">
     <meta property="og:url" content="https://sameera-chathuranga.github.io">
     <meta name="twitter:card" content="summary_large_image">
-    
+
     <!-- Load Tailwind CSS from CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     
     <!-- Load Inter font for clean typography -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+
+    <!-- Load Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
 
     <style>
         /* Apply the Inter font to the entire body */
         body {
             font-family: 'Inter', sans-serif;
+            background-color: #020617; /* bg-slate-950 */
         }
 
         /* Custom scrollbar for better user experience on desktop */
@@ -29,14 +33,14 @@
             width: 8px;
         }
         ::-webkit-scrollbar-track {
-            background: #1f2937; /* bg-gray-800 */
+            background: #0f172a; /* bg-slate-900 */
         }
         ::-webkit-scrollbar-thumb {
-            background: #4b5563; /* bg-gray-600 */
+            background: #334155; /* bg-slate-700 */
             border-radius: 4px;
         }
         ::-webkit-scrollbar-thumb:hover {
-            background: #6b7280; /* bg-gray-500 */
+            background: #475569; /* bg-slate-600 */
         }
 
         /* Animations for a dynamic feel */
@@ -53,9 +57,18 @@
             to { opacity: 1; }
         }
 
-        .animate-fade-in-down { animation: fadeInDown 0.8s ease-out; }
-        .animate-fade-in-up { animation: fadeInUp 0.8s ease-out; }
-        .animate-fade-in { animation: fadeIn 1.2s ease-in; }
+        .animate-fade-in-down { animation: fadeInDown 0.8s ease-out forwards; }
+        .animate-fade-in-up { animation: fadeInUp 0.8s ease-out forwards; }
+        .animate-fade-in { animation: fadeIn 1.2s ease-in forwards; }
+        
+        /* Add a subtle glow effect for interactive elements */
+        .glow-effect {
+            box-shadow: 0 0 5px rgba(99, 102, 241, 0), 0 0 10px rgba(99, 102, 241, 0);
+            transition: box-shadow 0.3s ease-in-out;
+        }
+        .glow-effect:hover {
+            box-shadow: 0 0 15px rgba(99, 102, 241, 0.6), 0 0 25px rgba(99, 102, 241, 0.4);
+        }
 
         /* Mobile menu transition */
         .mobile-menu {
@@ -75,116 +88,106 @@
             height: 100%;
             z-index: 0;
         }
-
-        /* Styling for the About Me section background */
+        
+        /* Background image styling with parallax effect */
+        .bg-section {
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+        }
         .about-bg {
             background-image: url('https://raw.githubusercontent.com/sameera-chathuranga/My-Biography/c264d9e1bea71ac3e9cfc6eb5ffdddef04320b6f/2e71981d-d204-4cb6-b03f-7be50e77850f.jpg');
-            background-size: cover;
-            background-position: center;
         }
-        
-        /* Styling for the Professional Experience section background */
         .experience-bg {
             background-image: url('https://raw.githubusercontent.com/sameera-chathuranga/My-Biography/153c9b9c117272b77c014cd1773b7cd33f29a9d0/221780-0-73873500-1746513580-race_compet_starting_sucess_leader_prepar_challenge-100746066-orig%20(1).webp');
-            background-size: cover;
-            background-position: center;
+        }
+        .education-bg {
+            background-image: url('https://raw.githubusercontent.com/sameera-chathuranga/My-Biography/dfef0d4f06ccb21f3bba153f5201dbb9c3503d2f/pexels-enginakyurt-2952871.jpg');
+        }
+        
+        /* New animation for skill cards */
+        .skill-card {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.6s ease-out forwards;
         }
     </style>
 </head>
-<body class="bg-gray-900 text-gray-100 font-sans leading-relaxed">
-    <!-- Noscript fallback for navigation -->
-    <noscript>
-        <style>
-            .md\:hidden { display: block; }
-            #mobile-menu { display: none; }
-        </style>
-        <div class="container mx-auto px-6 py-4 bg-gray-800">
-            <nav class="flex flex-col space-y-4 text-lg">
-                <a href="#about" class="text-gray-300 hover:text-white transition-colors">About</a>
-                <a href="#experience" class="text-gray-300 hover:text-white transition-colors">Experience</a>
-                <a href="#education" class="text-gray-300 hover:text-white transition-colors">Education</a>
-                <a href="#skills" class="text-gray-300 hover:text-white transition-colors">Skills</a>
-                <a href="#contact" class="text-gray-300 hover:text-white transition-colors">Contact</a>
-                <a href="#social-media" class="text-gray-300 hover:text-white transition-colors">Social</a>
-            </nav>
-        </div>
-    </noscript>
-
+<body class="bg-slate-950 text-slate-300 font-sans leading-relaxed">
+    
     <!-- Header & Navigation -->
-    <header class="bg-gray-800 bg-opacity-90 backdrop-blur-md sticky top-0 z-50 shadow-lg rounded-b-xl">
+    <header class="bg-slate-900/80 backdrop-blur-md sticky top-0 z-50 shadow-lg shadow-indigo-500/10">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-2xl font-bold text-teal-400 hover:text-teal-300 transition-colors">Sameera Chathuranga</a>
-            <div class="space-x-4 text-lg hidden md:block">
-                <a href="#about" class="text-gray-300 hover:text-white transition-colors">About</a>
-                <a href="#experience" class="text-gray-300 hover:text-white transition-colors">Experience</a>
-                <a href="#education" class="text-gray-300 hover:text-white transition-colors">Education</a>
-                <a href="#skills" class="text-gray-300 hover:text-white transition-colors">Skills</a>
-                <a href="#contact" class="text-gray-300 hover:text-white transition-colors">Contact</a>
-                <a href="#social-media" class="text-gray-300 hover:text-white transition-colors">Social</a>
+            <a href="#" class="text-2xl font-bold text-indigo-400 hover:text-indigo-300 transition-colors">Sameera Chathuranga</a>
+            <div class="space-x-6 text-lg hidden md:flex items-center">
+                <a href="#about" class="text-slate-300 hover:text-indigo-400 transition-colors">About</a>
+                <a href="#experience" class="text-slate-300 hover:text-indigo-400 transition-colors">Experience</a>
+                <a href="#education" class="text-slate-300 hover:text-indigo-400 transition-colors">Education</a>
+                <a href="#skills" class="text-slate-300 hover:text-indigo-400 transition-colors">Skills</a>
+                <a href="#contact" class="px-5 py-2 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-full shadow-lg transition-all duration-300 transform hover:scale-105">Contact</a>
             </div>
-            <button id="mobile-menu-button" class="md:hidden text-gray-300 hover:text-white focus:outline-none" aria-expanded="false" aria-controls="mobile-menu">
-                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
+            <button id="mobile-menu-button" class="md:hidden text-slate-300 hover:text-white focus:outline-none" aria-expanded="false" aria-controls="mobile-menu">
+                <i data-lucide="menu" class="h-6 w-6"></i>
             </button>
         </nav>
     </header>
 
     <!-- Mobile Menu -->
-    <div id="mobile-menu" class="fixed top-0 right-0 h-full w-64 bg-gray-900 bg-opacity-95 backdrop-blur-lg shadow-2xl z-50 mobile-menu">
+    <div id="mobile-menu" class="fixed top-0 right-0 h-full w-64 bg-slate-900/95 backdrop-blur-lg shadow-2xl z-50 mobile-menu">
         <div class="p-6">
-            <div class="flex justify-between items-center mb-8">
-                <span class="text-2xl font-bold text-teal-400">Menu</span>
-                <button id="mobile-menu-close" class="text-gray-300 hover:text-white focus:outline-none">
-                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
+            <div class="flex justify-end items-center mb-8">
+                <button id="mobile-menu-close" class="text-slate-300 hover:text-white focus:outline-none">
+                    <i data-lucide="x" class="h-6 w-6"></i>
                 </button>
             </div>
-            <nav class="flex flex-col space-y-4 text-lg">
-                <a href="#about" class="text-gray-300 hover:text-white transition-colors">About</a>
-                <a href="#experience" class="text-gray-300 hover:text-white transition-colors">Experience</a>
-                <a href="#education" class="text-gray-300 hover:text-white transition-colors">Education</a>
-                <a href="#skills" class="text-gray-300 hover:text-white transition-colors">Skills</a>
-                <a href="#contact" class="text-gray-300 hover:text-white transition-colors">Contact</a>
-                <a href="#social-media" class="text-gray-300 hover:text-white transition-colors">Social</a>
+            <nav class="flex flex-col space-y-6 text-lg text-center">
+                <a href="#about" class="text-slate-300 hover:text-indigo-400 transition-colors">About</a>
+                <a href="#experience" class="text-slate-300 hover:text-indigo-400 transition-colors">Experience</a>
+                <a href="#education" class="text-slate-300 hover:text-indigo-400 transition-colors">Education</a>
+                <a href="#skills" class="text-slate-300 hover:text-indigo-400 transition-colors">Skills</a>
+                <a href="#contact" class="text-slate-300 hover:text-indigo-400 transition-colors">Contact</a>
             </nav>
         </div>
     </div>
 
     <main>
-        <!-- Hero Section with Canvas Background -->
-        <section id="hero" class="relative min-h-screen flex items-center justify-center p-6">
+        <!-- Hero Section -->
+        <section id="hero" class="relative min-h-screen flex items-center justify-center p-6 overflow-hidden">
             <canvas id="hero-canvas"></canvas>
-            <div class="absolute inset-0 bg-black opacity-60 z-10"></div>
-            <div class="relative text-center max-w-4xl mx-auto p-8 rounded-3xl bg-gray-800 bg-opacity-70 backdrop-blur-sm shadow-2xl z-20">
-                <img src="https://raw.githubusercontent.com/sameera-chathuranga/My-Biography/refs/heads/main/e206552e-7df7-4099-aa6e-933fa59aa77d-1_all_18051.jpg" alt="Sameera Chathuranga" class="mx-auto rounded-full w-40 h-40 object-cover border-4 border-teal-500 shadow-xl mb-6 transform transition-transform duration-500 hover:scale-105 animate-fade-in" loading="lazy">
-                <h1 class="text-6xl md:text-7xl font-extrabold tracking-tight text-white animate-fade-in-down">
-                    Hello, I'm Sameera Chathuranga
+            <div class="absolute inset-0 bg-slate-950/70 z-10"></div>
+            <div class="relative text-center max-w-4xl mx-auto p-8 z-20">
+                <img src="https://raw.githubusercontent.com/sameera-chathuranga/My-Biography/refs/heads/main/e206552e-7df7-4099-aa6e-933fa59aa77d-1_all_18051.jpg" alt="Sameera Chathuranga" class="mx-auto rounded-full w-40 h-40 object-cover border-4 border-indigo-500 shadow-2xl shadow-indigo-500/40 mb-6 transform transition-transform duration-500 hover:scale-105 animate-fade-in" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/160x160/0f172a/818cf8?text=SC';">
+                <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight text-white animate-fade-in-down">
+                    Hello, I'm <span class="text-indigo-400">Sameera Chathuranga</span>
                 </h1>
-                <p class="text-2xl md:text-3xl text-gray-200 mt-4 animate-fade-in-up">
+                <p class="text-2xl md:text-3xl text-slate-300 mt-4 animate-fade-in-up">
                     Cost Account Executive
                 </p>
-                <a href="https://raw.githubusercontent.com/sameera-chathuranga/My-Biography/main/Sameera-Chathuranga-FlowCV-Resume-20250813.pdf" download class="mt-8 inline-block px-8 py-3 bg-teal-600 hover:bg-teal-700 text-white font-bold rounded-full shadow-lg transition-all duration-300 transform hover:scale-110">
-                    Download Resume
-                </a>
+                <div class="mt-8 flex justify-center gap-4 animate-fade-in-up" style="animation-delay: 0.5s;">
+                    <a href="https://raw.githubusercontent.com/sameera-chathuranga/My-Biography/main/Sameera-Chathuranga-FlowCV-Resume-20250813.pdf" download class="inline-flex items-center gap-2 px-8 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-full shadow-lg transition-all duration-300 transform hover:scale-105 glow-effect">
+                        <i data-lucide="download" class="h-5 w-5"></i>
+                        Download Resume
+                    </a>
+                    <a href="#contact" class="inline-flex items-center gap-2 px-8 py-3 bg-slate-700 hover:bg-slate-600 text-white font-bold rounded-full shadow-lg transition-all duration-300 transform hover:scale-105">
+                        <i data-lucide="send" class="h-5 w-5"></i>
+                        Contact Me
+                    </a>
+                </div>
             </div>
         </section>
 
         <!-- About Me Section -->
-        <section id="about" class="relative py-20 about-bg">
-            <!-- Overlay with reduced opacity for a clearer background image -->
-            <div class="absolute inset-0 bg-gray-900 opacity-70 z-0"></div>
-            <div class="relative z-10 container mx-auto px-6 max-w-4xl">
-                <h2 class="text-5xl font-bold text-center text-white mb-12 border-b-4 border-teal-600 pb-2 inline-block mx-auto animate-fade-in">
-                    About Me
-                </h2>
-                <!-- Text area with reduced opacity and backdrop blur -->
-                <div class="bg-gray-800 bg-opacity-50 backdrop-blur-sm rounded-3xl shadow-xl p-8 md:p-12 text-center text-lg animate-fade-in-up">
-                    <p class="mb-4 text-gray-200">
-                        I am Sameera Chathuranga, a results-driven Cost Account Executive with a BSc (Hons) in Accountancy and Finance. Skilled in financial analysis and costing, I combine strong academic knowledge with hands-on experience to enhance organisational financial performance.
+        <section id="about" class="py-24 bg-section about-bg">
+            <div class="absolute inset-0 bg-slate-900/80 z-0"></div>
+            <div class="relative z-10 container mx-auto px-6 max-w-4xl text-center">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-4 animate-fade-in">About Me</h2>
+                <div class="w-24 h-1 bg-indigo-500 mx-auto mb-12"></div>
+                <div class="bg-slate-800/50 rounded-2xl shadow-2xl p-8 md:p-12 text-lg text-slate-300 animate-fade-in-up">
+                    <p class="mb-4">
+                        I am a results-driven Cost Account Executive with a BSc (Hons) in Accountancy and Finance. Skilled in financial analysis and costing, I combine strong academic knowledge with hands-on experience to enhance organisational financial performance.
                     </p>
-                    <p class="mb-4 text-gray-200">
+                    <p>
                         I am passionate about streamlining cost structures, delivering actionable insights, and supporting strategic decision-making in the dynamic finance and accounting sector.
                     </p>
                 </div>
@@ -192,202 +195,195 @@
         </section>
 
         <!-- Professional Experience Section -->
-        <section id="experience" class="relative py-20 experience-bg">
-            <!-- Overlay with reduced opacity for a clearer background image -->
-            <div class="absolute inset-0 bg-gray-900 opacity-70 z-0"></div>
+        <section id="experience" class="py-24 bg-section experience-bg">
+            <div class="absolute inset-0 bg-slate-950/80 z-0"></div>
             <div class="relative z-10 container mx-auto px-6 max-w-5xl">
-                <h2 class="text-5xl font-bold text-center text-white mb-12 animate-fade-in">
-                    Professional Experience
-                </h2>
-                <div class="space-y-8">
-                    <!-- Finance Trainee Card -->
-                    <div class="p-6 md:p-8 text-center bg-gray-900 bg-opacity-50 backdrop-blur-sm rounded-2xl shadow-xl transform transition-transform duration-500 hover:scale-105 animate-fade-in-up">
-                        <h3 class="text-2xl font-bold text-teal-400 mb-2">Finance Trainee</h3>
-                        <p class="text-gray-200 text-sm">Sri Lanka Port Authority | Mar 2023 - Sep 2023</p>
-                        <ul class="list-disc list-inside text-left text-gray-300 text-sm mt-4 md:pl-8">
+                <h2 class="text-4xl md:text-5xl font-bold text-center text-white mb-4 animate-fade-in">Professional Experience</h2>
+                <div class="w-24 h-1 bg-indigo-500 mx-auto mb-16"></div>
+                <div class="relative border-l-2 border-slate-700 ml-4 md:ml-0">
+                    <!-- Experience Item 1 -->
+                    <div class="mb-12 pl-8 md:pl-12 relative animate-fade-in-up">
+                        <div class="absolute -left-4 top-1 h-7 w-7 bg-indigo-500 rounded-full border-4 border-slate-950"></div>
+                        <h3 class="text-2xl font-bold text-indigo-400 mb-1">Cost Account Executive</h3>
+                        <p class="text-slate-400 text-md mb-3">Star Holdings International PVT Ltd | Nov 2023 - Present</p>
+                        <ul class="list-disc list-inside text-slate-300 space-y-2">
+                            <li>Prepared and analysed cost reports to support financial planning and control.</li>
+                            <li>Monitored, tracked, and reported on cost variances to ensure budget adherence.</li>
+                            <li>Collaborated with departments to collect and validate data for cost allocation.</li>
+                            <li>Supported management in pricing strategies by providing detailed cost breakdowns.</li>
+                            <li>Contributed to improving cost efficiency and profitability through analysis.</li>
+                        </ul>
+                    </div>
+                    <!-- Experience Item 2 -->
+                    <div class="mb-12 pl-8 md:pl-12 relative animate-fade-in-up" style="animation-delay: 0.2s;">
+                        <div class="absolute -left-4 top-1 h-7 w-7 bg-indigo-500 rounded-full border-4 border-slate-950"></div>
+                        <h3 class="text-2xl font-bold text-indigo-400 mb-1">Finance Trainee</h3>
+                        <p class="text-slate-400 text-md mb-3">Sri Lanka Port Authority | Mar 2023 - Sep 2023</p>
+                        <ul class="list-disc list-inside text-slate-300 space-y-2">
                             <li>Assisted in preparing and analysing financial statements, ensuring accuracy and compliance.</li>
                             <li>Supported costing, budgeting, and variance analysis.</li>
                             <li>Processed and reconciled financial transactions, maintaining accurate records.</li>
                             <li>Collaborated on special projects, audits, and month-end closing activities.</li>
                         </ul>
                     </div>
-                    <!-- Cost Account Executive Card -->
-                    <div class="p-6 md:p-8 text-center bg-gray-900 bg-opacity-50 backdrop-blur-sm rounded-2xl shadow-xl transform transition-transform duration-500 hover:scale-105 animate-fade-in-up">
-                        <h3 class="text-2xl font-bold text-teal-400 mb-2">Cost Account Executive</h3>
-                        <p class="text-gray-200 text-sm">Star Holdings International PVT Ltd | Nov 2023 - Present</p>
-                        <ul class="list-disc list-inside text-left text-gray-300 text-sm mt-4 md:pl-8">
-                            <li>Prepared and analysed cost reports to support financial planning and control.</li>
-                            <li>Monitored, tracked, and reported on cost variances to ensure budget adherence.</li>
-                            <li>Collaborated with departments to collect and validate data for cost allocation.</li>
-                            <li>Supported management in pricing strategies by providing detailed cost breakdowns.</li>
-                            <li>Contributed to improving cost efficiency and profitability through analysis and recommendations.</li>
-                        </ul>
-                    </div>
                 </div>
             </div>
         </section>
-        
+
         <!-- Education Section -->
-        <section id="education" class="py-20 bg-gray-900">
-            <div class="container mx-auto px-6 max-w-5xl">
-                <h2 class="text-5xl font-bold text-center text-white mb-12 animate-fade-in">
-                    Education
-                </h2>
-                <div class="space-y-8">
-                    <!-- G.C.E O/L Card -->
-                    <div class="p-6 md:p-8 text-center bg-gray-800 rounded-2xl shadow-xl transform transition-transform duration-500 hover:scale-105 animate-fade-in-up">
-                        <h3 class="text-2xl font-bold text-teal-400 mb-2">G.C.E Ordinary Level Examination</h3>
-                        <p class="text-gray-200 text-sm">G/Batemulla National School | 2013</p>
-                        <p class="text-gray-200 text-sm mt-2">2 A, 5 B (Including Maths), 2 C</p>
+        <section id="education" class="py-24 bg-section education-bg">
+            <div class="absolute inset-0 bg-slate-900/80 z-0"></div>
+            <div class="relative z-10 container mx-auto px-6 max-w-5xl">
+                <h2 class="text-4xl md:text-5xl font-bold text-center text-white mb-4 animate-fade-in">Education & Certifications</h2>
+                <div class="w-24 h-1 bg-indigo-500 mx-auto mb-16"></div>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- Education Card 1 -->
+                    <div class="bg-slate-800/50 p-6 rounded-xl shadow-lg glow-effect animate-fade-in-up">
+                        <h3 class="text-xl font-bold text-indigo-400 mb-1">B.Sc. (Hons) Accountancy & Business Finance</h3>
+                        <p class="text-slate-400">Wayamba University of Sri Lanka | 2019 - 2023</p>
                     </div>
-                    <!-- G.C.E A/L Card -->
-                    <div class="p-6 md:p-8 text-center bg-gray-800 rounded-2xl shadow-xl transform transition-transform duration-500 hover:scale-105 animate-fade-in-up">
-                        <h3 class="text-2xl font-bold text-teal-400 mb-2">G.C.E Advanced Level Examination</h3>
-                        <p class="text-gray-200 text-sm">G/Batemulla National School | 2017</p>
-                        <p class="text-gray-200 text-sm mt-2">2 A and 1 B with district rank 284</p>
+                    <!-- Education Card 2 -->
+                    <div class="bg-slate-800/50 p-6 rounded-xl shadow-lg glow-effect animate-fade-in-up" style="animation-delay: 0.1s;">
+                        <h3 class="text-xl font-bold text-indigo-400 mb-1">Certified Management Accountant (CMA)</h3>
+                        <p class="text-slate-400">CMA Sri Lanka | Managerial Level Completed</p>
                     </div>
-                    <!-- CA Sri Lanka Card -->
-                    <div class="p-6 md:p-8 text-center bg-gray-800 rounded-2xl shadow-xl transform transition-transform duration-500 hover:scale-105 animate-fade-in-up">
-                        <h3 class="text-2xl font-bold text-teal-400 mb-2">CA Sri Lanka Business Level I Examination</h3>
-                        <p class="text-gray-200 text-sm">Sep 2017 - Mar 2018</p>
-                        <p class="text-gray-200 text-sm mt-2">Successfully completed the examination.</p>
+                    <!-- Education Card 3 -->
+                    <div class="bg-slate-800/50 p-6 rounded-xl shadow-lg glow-effect animate-fade-in-up" style="animation-delay: 0.2s;">
+                        <h3 class="text-xl font-bold text-indigo-400 mb-1">CA Sri Lanka Business Level I</h3>
+                        <p class="text-slate-400">Successfully completed the examination.</p>
                     </div>
-                    <!-- Wayamba University Card -->
-                    <div class="p-6 md:p-8 text-center bg-gray-800 rounded-2xl shadow-xl transform transition-transform duration-500 hover:scale-105 animate-fade-in-up">
-                        <h3 class="text-2xl font-bold text-teal-400 mb-2">B.Sc. (Hons) Accountancy & Business Finance</h3>
-                        <p class="text-gray-200 text-sm">Wayamba University of Sri Lanka | Sep 2019 - Sep 2023</p>
-                    </div>
-                    <!-- CMA Card -->
-                    <div class="p-6 md:p-8 text-center bg-gray-800 rounded-2xl shadow-xl transform transition-transform duration-500 hover:scale-105 animate-fade-in-up">
-                        <h3 class="text-2xl font-bold text-teal-400 mb-2">Certified Management Accountant (CMA)</h3>
-                        <p class="text-gray-200 text-sm">CMA Sri Lanka | May 2022 - Present</p>
-                        <p class="text-gray-200 text-sm mt-2">Successfully completed the managerial level examination.</p>
+                     <!-- Education Card 4 -->
+                    <div class="bg-slate-800/50 p-6 rounded-xl shadow-lg glow-effect animate-fade-in-up" style="animation-delay: 0.3s;">
+                        <h3 class="text-xl font-bold text-indigo-400 mb-1">G.C.E Advanced & Ordinary Level</h3>
+                        <p class="text-slate-400">G/Batemulla National School</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Skills Section -->
-        <section id="skills" class="py-20 bg-gray-800">
-            <div class="container mx-auto px-6 max-w-4xl">
-                <h2 class="text-5xl font-bold text-center text-white mb-12 border-b-4 border-teal-600 pb-2 inline-block mx-auto animate-fade-in">
-                    My Skills
-                </h2>
-                <div class="flex flex-wrap justify-center gap-6 animate-fade-in-up">
-                    <span class="bg-gray-900 text-teal-400 text-lg font-semibold px-6 py-3 rounded-full shadow-md transition-all duration-300 transform hover:scale-110">Financial Analysis</span>
-                    <span class="bg-gray-900 text-teal-400 text-lg font-semibold px-6 py-3 rounded-full shadow-md transition-all duration-300 transform hover:scale-110">Costing & Budgeting</span>
-                    <span class="bg-gray-900 text-teal-400 text-lg font-semibold px-6 py-3 rounded-full shadow-md transition-all duration-300 transform hover:scale-110">MS Office, Email, Internet</span>
-                    <span class="bg-gray-900 text-teal-400 text-lg font-semibold px-6 py-3 rounded-full shadow-md transition-all duration-300 transform hover:scale-110">Power BI</span>
-                    <span class="bg-gray-900 text-teal-400 text-lg font-semibold px-6 py-3 rounded-full shadow-md transition-all duration-300 transform hover:scale-110">Creative Spirit</span>
-                    <span class="bg-gray-900 text-teal-400 text-lg font-semibold px-6 py-3 rounded-full shadow-md transition-all duration-300 transform hover:scale-110">Team Player</span>
-                    <span class="bg-gray-900 text-teal-400 text-lg font-semibold px-6 py-3 rounded-full shadow-md transition-all duration-300 transform hover:scale-110">Work Under Pressure</span>
-                    <span class="bg-gray-900 text-teal-400 text-lg font-semibold px-6 py-3 rounded-full shadow-md transition-all duration-300 transform hover:scale-110">Fast Learner</span>
-                    <span class="bg-gray-900 text-teal-400 text-lg font-semibold px-6 py-3 rounded-full shadow-md transition-all duration-300 transform hover:scale-110">Communication Skills</span>
+        <section id="skills" class="py-24">
+            <div class="container mx-auto px-6 max-w-6xl text-center">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-4 animate-fade-in">Core Competencies</h2>
+                <div class="w-24 h-1 bg-indigo-500 mx-auto mb-16"></div>
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                    <!-- Skill Card 1 -->
+                    <div class="skill-card bg-slate-800 p-6 rounded-xl shadow-lg flex flex-col items-center justify-center transition-transform duration-300 hover:-translate-y-2 glow-effect">
+                        <i data-lucide="bar-chart-2" class="h-12 w-12 text-indigo-400 mb-4"></i>
+                        <h3 class="text-lg font-semibold text-white">Financial Analysis</h3>
+                    </div>
+                    <!-- Skill Card 2 -->
+                    <div class="skill-card bg-slate-800 p-6 rounded-xl shadow-lg flex flex-col items-center justify-center transition-transform duration-300 hover:-translate-y-2 glow-effect" style="animation-delay: 0.1s;">
+                        <i data-lucide="calculator" class="h-12 w-12 text-indigo-400 mb-4"></i>
+                        <h3 class="text-lg font-semibold text-white">Costing & Budgeting</h3>
+                    </div>
+                    <!-- Skill Card 3 -->
+                    <div class="skill-card bg-slate-800 p-6 rounded-xl shadow-lg flex flex-col items-center justify-center transition-transform duration-300 hover:-translate-y-2 glow-effect" style="animation-delay: 0.2s;">
+                        <i data-lucide="laptop" class="h-12 w-12 text-indigo-400 mb-4"></i>
+                        <h3 class="text-lg font-semibold text-white">MS Office Suite</h3>
+                    </div>
+                    <!-- Skill Card 4 -->
+                    <div class="skill-card bg-slate-800 p-6 rounded-xl shadow-lg flex flex-col items-center justify-center transition-transform duration-300 hover:-translate-y-2 glow-effect" style="animation-delay: 0.3s;">
+                        <i data-lucide="pie-chart" class="h-12 w-12 text-indigo-400 mb-4"></i>
+                        <h3 class="text-lg font-semibold text-white">Power BI</h3>
+                    </div>
+                    <!-- Skill Card 5 -->
+                    <div class="skill-card bg-slate-800 p-6 rounded-xl shadow-lg flex flex-col items-center justify-center transition-transform duration-300 hover:-translate-y-2 glow-effect" style="animation-delay: 0.4s;">
+                        <i data-lucide="users" class="h-12 w-12 text-indigo-400 mb-4"></i>
+                        <h3 class="text-lg font-semibold text-white">Team Collaboration</h3>
+                    </div>
+                    <!-- Skill Card 6 -->
+                    <div class="skill-card bg-slate-800 p-6 rounded-xl shadow-lg flex flex-col items-center justify-center transition-transform duration-300 hover:-translate-y-2 glow-effect" style="animation-delay: 0.5s;">
+                        <i data-lucide="lightbulb" class="h-12 w-12 text-indigo-400 mb-4"></i>
+                        <h3 class="text-lg font-semibold text-white">Problem Solving</h3>
+                    </div>
+                    <!-- Skill Card 7 -->
+                    <div class="skill-card bg-slate-800 p-6 rounded-xl shadow-lg flex flex-col items-center justify-center transition-transform duration-300 hover:-translate-y-2 glow-effect" style="animation-delay: 0.6s;">
+                        <i data-lucide="refresh-cw" class="h-12 w-12 text-indigo-400 mb-4"></i>
+                        <h3 class="text-lg font-semibold text-white">Adaptability</h3>
+                    </div>
+                    <!-- Skill Card 8 -->
+                    <div class="skill-card bg-slate-800 p-6 rounded-xl shadow-lg flex flex-col items-center justify-center transition-transform duration-300 hover:-translate-y-2 glow-effect" style="animation-delay: 0.7s;">
+                        <i data-lucide="message-square" class="h-12 w-12 text-indigo-400 mb-4"></i>
+                        <h3 class="text-lg font-semibold text-white">Communication</h3>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- Contact Section -->
-        <section id="contact" class="py-12 bg-gray-900">
-            <div class="container mx-auto px-4 max-w-3xl">
-                <h2 class="text-4xl font-bold text-center text-white mb-8 border-b-4 border-teal-600 pb-2 inline-block mx-auto animate-fade-in">
-                    Get in Touch
-                </h2>
-                <div class="bg-gray-800 rounded-3xl p-6 shadow-xl text-center animate-fade-in-up">
-                    <p class="text-gray-200 text-base mb-4">
-                        I'm always open to new opportunities and collaborations. Feel free to reach out to me!
+        <section id="contact" class="py-24 bg-slate-900">
+            <div class="container mx-auto px-4 max-w-2xl">
+                <h2 class="text-4xl md:text-5xl font-bold text-center text-white mb-4 animate-fade-in">Get in Touch</h2>
+                <div class="w-24 h-1 bg-indigo-500 mx-auto mb-12"></div>
+                <div class="bg-slate-800/50 rounded-2xl p-8 shadow-2xl text-center animate-fade-in-up">
+                    <p class="text-slate-300 text-lg mb-6">
+                        I'm always open to new opportunities and collaborations. Feel free to reach out!
                     </p>
-                    <form action="https://formspree.io/f/xgvzdqda" method="POST" id="contact-form" class="space-y-3 text-left">
+                    <form action="https://formspree.io/f/xgvzdqda" method="POST" id="contact-form" class="space-y-4 text-left">
                         <div>
-                            <label for="name" class="block text-gray-200 font-bold text-sm mb-1">Name</label>
-                            <input type="text" id="name" name="name" placeholder="Your Name" required class="w-full px-3 py-1.5 bg-gray-900 border border-gray-700 rounded-lg text-white text-sm focus:outline-none focus:ring-2 focus:ring-teal-500">
+                            <label for="name" class="sr-only">Name</label>
+                            <input type="text" id="name" name="name" placeholder="Your Name" required class="w-full px-4 py-2 bg-slate-900 border border-slate-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-indigo-500">
                         </div>
                         <div>
-                            <label for="email" class="block text-gray-200 font-bold text-sm mb-1">Email</label>
-                            <input type="email" id="email" name="email" placeholder="youremail@example.com" required class="w-full px-3 py-1.5 bg-gray-900 border border-gray-700 rounded-lg text-white text-sm focus:outline-none focus:ring-2 focus:ring-teal-500">
+                            <label for="email" class="sr-only">Email</label>
+                            <input type="email" id="email" name="email" placeholder="Your Email" required class="w-full px-4 py-2 bg-slate-900 border border-slate-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-indigo-500">
                         </div>
                         <div>
-                            <label for="subject" class="block text-gray-200 font-bold text-sm mb-1">Subject</label>
-                            <input type="text" id="subject" name="subject" placeholder="What's this about?" required class="w-full px-3 py-1.5 bg-gray-900 border border-gray-700 rounded-lg text-white text-sm focus:outline-none focus:ring-2 focus:ring-teal-500">
-                        </div>
-                        <div>
-                            <label for="message" class="block text-gray-200 font-bold text-sm mb-1">Message</label>
-                            <textarea id="message" name="message" rows="3" placeholder="Your message..." required class="w-full px-3 py-1.5 bg-gray-900 border border-gray-700 rounded-lg text-white text-sm focus:outline-none focus:ring-2 focus:ring-teal-500"></textarea>
+                            <label for="message" class="sr-only">Message</label>
+                            <textarea id="message" name="message" rows="4" placeholder="Your Message..." required class="w-full px-4 py-2 bg-slate-900 border border-slate-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"></textarea>
                         </div>
                         <div class="text-center">
-                            <button type="submit" id="submit-button" class="px-6 py-2 bg-teal-600 hover:bg-teal-700 text-white font-bold rounded-full shadow-lg text-sm transition-all duration-300 transform hover:scale-110">
+                            <button type="submit" id="submit-button" class="px-8 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-full shadow-lg transition-all duration-300 transform hover:scale-105 glow-effect">
                                 Send Message
                             </button>
                         </div>
                     </form>
-                    <!-- Custom Message Box for form feedback -->
-                    <div id="form-message-box" class="mt-4 px-4 py-2 rounded-lg text-center hidden"></div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Social Media Links Section -->
-        <section id="social-media" class="py-12 bg-gray-800">
-            <div class="container mx-auto px-4 max-w-3xl text-center">
-                <h2 class="text-4xl font-bold text-white mb-8 border-b-4 border-teal-600 pb-2 inline-block mx-auto animate-fade-in">
-                    Connect with Me
-                </h2>
-                <!-- Social media icons with colorful SVGs -->
-                <div class="flex justify-center space-x-6 animate-fade-in-up">
-                    <!-- LinkedIn -->
-                    <a href="https://linkedin.com/in/sameera-chathuranga307" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile" class="transform hover:scale-125 transition-transform duration-300">
-                        <svg class="h-10 w-10" fill="#0077B5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M4.98 3.5c0 1.373-.811 2.5-2.073 2.5-1.268 0-2.074-1.127-2.074-2.5C.833 2.127 1.639 1 2.907 1c1.262 0 2.073 1.127 2.073 2.5zm-.153 5.48h-3.649v10.16h3.649v-10.16zm7.26 0h-3.415v10.16h3.415V13.82c0-2.825 2.176-2.585 2.545-2.585.347 0 .584.093.584.588v7.62h3.649V13.11c0-4.048-3.033-4.52-5.418-4.52z"/>
-                        </svg>
-                    </a>
-                    <!-- Facebook -->
-                    <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook Profile" class="transform hover:scale-125 transition-transform duration-300">
-                        <svg class="h-10 w-10" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path fill="#1877F2" d="M22.675 0H1.325C.594 0 0 .594 0 1.325v21.35C0 23.406.594 24 1.325 24h11.455v-9.294H9.46v-3.626h3.32V8.411c0-3.267 1.992-5.04 4.895-5.04 1.394 0 2.585.104 2.934.15v3.4l-2.015.001c-1.581 0-1.885.753-1.885 1.854V11.08h3.791l-.611 3.626h-3.18V24h6.052c.731 0 1.323-.594 1.323-1.325V1.325C24 .594 23.406 0 22.675 0z"/>
-                        </svg>
-                    </a>
-                    <!-- X (formerly Twitter) -->
-                    <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" aria-label="X Profile" class="transform hover:scale-125 transition-transform duration-300">
-                        <svg class="h-10 w-10" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path fill="#ffffff" d="M18.901 1.144h3.195l-7.794 8.243 9.479 12.013h-7.854l-5.942-7.535-6.155 7.535h-3.195l8.156-8.625-9.845-12.013h8.04l4.981 6.551zM19.789 20.898h2.096l-14.869-17.72h-2.222l14.995 17.72z"/>
-                        </svg>
-                    </a>
-                    <!-- GitHub icon (keeping it since it's common for a portfolio) -->
-                    <a href="https://github.com/sameera-chathuranga" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile" class="transform hover:scale-125 transition-transform duration-300">
-                        <svg class="h-10 w-10" fill="#ffffff" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <title>GitHub Profile</title>
-                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                        </svg>
-                    </a>
+                    <div id="form-message-box" class="mt-4 px-4 py-2 rounded-lg text-center text-white hidden"></div>
                 </div>
             </div>
         </section>
     </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 py-8 text-center text-gray-400 text-sm">
-        <p>&copy; <span id="year"></span> Sameera Chathuranga. All Rights Reserved.</p>
+    <footer class="bg-slate-950 py-8 text-center text-slate-400 text-sm">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-center space-x-6 mb-4">
+                <a href="https://linkedin.com/in/sameera-chathuranga307" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile" class="text-slate-400 hover:text-indigo-400 transition-colors">
+                    <i data-lucide="linkedin" class="h-6 w-6"></i>
+                </a>
+                <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook Profile" class="text-slate-400 hover:text-indigo-400 transition-colors">
+                    <i data-lucide="facebook" class="h-6 w-6"></i>
+                </a>
+                <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" aria-label="X Profile" class="text-slate-400 hover:text-indigo-400 transition-colors">
+                    <i data-lucide="twitter" class="h-6 w-6"></i>
+                </a>
+                <a href="https://github.com/sameera-chathuranga" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile" class="text-slate-400 hover:text-indigo-400 transition-colors">
+                    <i data-lucide="github" class="h-6 w-6"></i>
+                </a>
+            </div>
+            <p>&copy; <span id="year"></span> Sameera Chathuranga. All Rights Reserved.</p>
+        </div>
     </footer>
 
-    <!-- JavaScript for Mobile Menu, Form Handling, and Canvas Animation -->
     <script>
+        // Immediately call the function to replace the icons
+        lucide.createIcons();
+
         document.addEventListener('DOMContentLoaded', () => {
             // Mobile Menu Toggle Logic
             const mobileMenuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
             const mobileMenuClose = document.getElementById('mobile-menu-close');
 
-            mobileMenuButton.addEventListener('click', () => {
+            const toggleMenu = () => {
                 const isOpen = mobileMenu.classList.toggle('open');
                 mobileMenuButton.setAttribute('aria-expanded', isOpen);
-            });
+            };
 
-            mobileMenuClose.addEventListener('click', () => {
-                mobileMenu.classList.remove('open');
-                mobileMenuButton.setAttribute('aria-expanded', 'false');
-            });
+            mobileMenuButton.addEventListener('click', toggleMenu);
+            mobileMenuClose.addEventListener('click', toggleMenu);
 
-            // Close mobile menu when a link is clicked
             mobileMenu.querySelectorAll('a').forEach(link => {
                 link.addEventListener('click', () => {
                     mobileMenu.classList.remove('open');
@@ -403,20 +399,13 @@
             const submitButton = document.getElementById('submit-button');
             const messageBox = document.getElementById('form-message-box');
 
-            // Function to show a custom message on the page
             function showMessage(message, type) {
                 messageBox.textContent = message;
-                messageBox.classList.remove('hidden', 'bg-red-500', 'bg-green-500');
-                if (type === 'success') {
-                    messageBox.classList.add('bg-green-500');
-                } else if (type === 'error') {
-                    messageBox.classList.add('bg-red-500');
-                }
-                messageBox.classList.add('block');
+                messageBox.className = 'mt-4 px-4 py-2 rounded-lg text-center text-white'; // Reset classes
+                messageBox.classList.remove('hidden');
+                messageBox.classList.add(type === 'success' ? 'bg-green-500' : 'bg-red-500');
                 
-                // Hide the message after a few seconds
                 setTimeout(() => {
-                    messageBox.classList.remove('block');
                     messageBox.classList.add('hidden');
                 }, 5000);
             }
@@ -424,7 +413,7 @@
             form.addEventListener('submit', async (e) => {
                 e.preventDefault();
                 submitButton.disabled = true;
-                submitButton.textContent = 'Sending...';
+                submitButton.innerHTML = 'Sending...';
 
                 try {
                     const response = await fetch(form.action, {
@@ -436,111 +425,142 @@
                         showMessage('Message sent successfully!', 'success');
                         form.reset();
                     } else {
-                        showMessage('Error sending message. Please try again.', 'error');
+                        throw new Error('Form submission failed');
                     }
                 } catch (error) {
-                    showMessage('Network error. Please try again later.', 'error');
+                    showMessage('Error sending message. Please try again.', 'error');
                 } finally {
                     submitButton.disabled = false;
-                    submitButton.textContent = 'Send Message';
+                    submitButton.innerHTML = 'Send Message';
                 }
             });
 
             // Canvas Particle Animation
             const canvas = document.getElementById('hero-canvas');
             const ctx = canvas.getContext('2d');
-
             let particles = [];
-            const particleCount = 75;
-            const maxDistance = 100; // Max distance for connecting lines
+            const particleCount = 100; // Increased particle count
+            const maxDistance = 100;
 
-            // Resize canvas on window resize
-            window.addEventListener('resize', () => {
+            // Mouse position object
+            const mouse = {
+                x: null,
+                y: null,
+                radius: 150 // Area of effect for mouse interaction
+            };
+
+            window.addEventListener('mousemove', (event) => {
+                mouse.x = event.x;
+                mouse.y = event.y;
+            });
+            window.addEventListener('mouseout', () => {
+                mouse.x = null;
+                mouse.y = null;
+            });
+
+
+            const resizeCanvas = () => {
                 canvas.width = window.innerWidth;
                 canvas.height = window.innerHeight;
-                initParticles(); // Re-initialize particles to fit new dimensions
-            });
+                initParticles();
+            };
+
+            window.addEventListener('resize', resizeCanvas);
 
             class Particle {
                 constructor() {
                     this.x = Math.random() * canvas.width;
                     this.y = Math.random() * canvas.height;
-                    this.size = Math.random() * 5 + 1;
-                    this.speedX = Math.random() * 0.5 - 0.25;
-                    this.speedY = Math.random() * 0.5 - 0.25;
+                    this.size = Math.random() * 2.5 + 1; // Varied sizes for depth
+                    this.speedX = Math.random() * 0.8 - 0.4; // Varied speeds
+                    this.speedY = Math.random() * 0.8 - 0.4;
+                    this.color = `rgba(129, 140, 248, ${Math.random() * 0.5 + 0.3})`; // Indigo with random opacity
+                    this.opacity = Math.random() * 0.5 + 0.2;
+                    this.opacityDirection = 1;
                 }
 
                 update() {
-                    this.x += this.speedX;
-                    this.y += this.speedY;
-
-                    // Reverse direction if a particle hits the edge
+                    // Wall collision
                     if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
                     if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+
+                    // Mouse interaction - repulsion
+                    if (mouse.x !== null) {
+                        const dx = mouse.x - this.x;
+                        const dy = mouse.y - this.y;
+                        const distance = Math.sqrt(dx * dx + dy * dy);
+                        if (distance < mouse.radius) {
+                            const forceDirectionX = dx / distance;
+                            const forceDirectionY = dy / distance;
+                            const force = (mouse.radius - distance) / mouse.radius;
+                            this.x -= forceDirectionX * force * 2;
+                            this.y -= forceDirectionY * force * 2;
+                        } else {
+                            this.x += this.speedX;
+                            this.y += this.speedY;
+                        }
+                    } else {
+                         this.x += this.speedX;
+                         this.y += this.speedY;
+                    }
+                    
+                    // Twinkling effect
+                    if (this.opacityDirection) {
+                        this.opacity += 0.005;
+                        if (this.opacity >= 1) this.opacityDirection = 0;
+                    } else {
+                        this.opacity -= 0.005;
+                        if (this.opacity <= 0.1) this.opacityDirection = 1;
+                    }
                 }
 
                 draw() {
-                    ctx.fillStyle = 'rgba(20, 184, 166, 0.5)'; // Teal color
+                    ctx.fillStyle = `rgba(129, 140, 248, ${this.opacity})`;
                     ctx.beginPath();
                     ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
                     ctx.fill();
                 }
             }
 
-            // Initializes the particles array with new Particle objects
             function initParticles() {
                 particles = [];
                 for (let i = 0; i < particleCount; i++) {
                     particles.push(new Particle());
                 }
             }
-            
-            // Function to draw lines between close particles
+
             function connectParticles() {
-                let opacityValue = 1;
-                for (let a = 0; a < particles.length; a++) {
-                    for (let b = a; b < particles.length; b++) {
-                        const distance = Math.sqrt(
-                            (particles[a].x - particles[b].x) ** 2 +
-                            (particles[a].y - particles[b].y) ** 2
-                        );
-                        // If particles are close, draw a line between them
+                for (let i = 0; i < particles.length; i++) {
+                    for (let j = i; j < particles.length; j++) {
+                        const dx = particles[i].x - particles[j].x;
+                        const dy = particles[i].y - particles[j].y;
+                        const distance = Math.sqrt(dx * dx + dy * dy);
+
                         if (distance < maxDistance) {
-                            // Calculate opacity based on distance (closer = more opaque)
-                            opacityValue = 1 - (distance / maxDistance);
-                            ctx.strokeStyle = `rgba(20, 184, 166, ${opacityValue})`;
-                            ctx.lineWidth = 1;
+                            const opacity = 1 - distance / maxDistance;
+                            ctx.strokeStyle = `rgba(129, 140, 248, ${opacity * 0.8})`;
+                            ctx.lineWidth = 0.5;
                             ctx.beginPath();
-                            ctx.moveTo(particles[a].x, particles[a].y);
-                            ctx.lineTo(particles[b].x, particles[b].y);
+                            ctx.moveTo(particles[i].x, particles[i].y);
+                            ctx.lineTo(particles[j].x, particles[j].y);
                             ctx.stroke();
                         }
                     }
                 }
             }
 
-            // Main animation loop
             function animate() {
-                // Clear the canvas for the next frame
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
-                // Update and draw each particle
-                for (let i = 0; i < particles.length; i++) {
-                    particles[i].update();
-                    particles[i].draw();
-                }
-                // Connect the particles with lines
+                particles.forEach(p => {
+                    p.update();
+                    p.draw();
+                });
                 connectParticles();
-                // Request the next animation frame
                 requestAnimationFrame(animate);
             }
 
-            // Initial setup on page load
-            window.onload = () => {
-                canvas.width = window.innerWidth;
-                canvas.height = window.innerHeight;
-                initParticles(); // Populate the particle array
-                animate(); // Start the animation loop
-            };
+            resizeCanvas();
+            animate();
         });
     </script>
 </body>
