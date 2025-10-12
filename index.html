@@ -26,166 +26,160 @@
         body {
             font-family: 'Inter', sans-serif;
             background-color: #020617; /* bg-slate-950 */
+            color: #cbd5e1; /* slate-300 */
         }
 
         /* Custom scrollbar for better user experience on desktop */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #0f172a; /* bg-slate-900 */
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #334155; /* bg-slate-700 */
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #475569; /* bg-slate-600 */
-        }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0f172a; }
+        ::-webkit-scrollbar-thumb { background: #4f46e5; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #6366f1; }
 
-        /* Animations for a dynamic feel */
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
+        /* General Animations */
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .animate-fade-in { animation: fadeIn 1s ease-out forwards; }
+        .animate-fade-in-up { opacity: 0; animation: fadeInUp 0.8s ease-out forwards; }
 
-        .animate-fade-in-down { animation: fadeInDown 0.8s ease-out forwards; }
-        .animate-fade-in-up { animation: fadeInUp 0.8s ease-out forwards; }
-        .animate-fade-in { animation: fadeIn 1.2s ease-in forwards; }
+        /* Header Styling */
+        header {
+            border-bottom: 1px solid rgba(79, 70, 229, 0.2);
+        }
         
-        /* Add a subtle glow effect for interactive elements */
-        .glow-effect {
-            box-shadow: 0 0 5px rgba(99, 102, 241, 0), 0 0 10px rgba(99, 102, 241, 0);
-            transition: box-shadow 0.3s ease-in-out;
-        }
-        .glow-effect:hover {
-            box-shadow: 0 0 15px rgba(99, 102, 241, 0.6), 0 0 25px rgba(99, 102, 241, 0.4);
+        /* Stylized Name in Header */
+        .logo-name span {
+            color: #818cf8; /* indigo-400 */
         }
 
-        /* Mobile menu transition */
-        .mobile-menu {
-            transform: translateX(100%);
-            transition: transform 0.3s ease-out;
+        /* Navigation Link Styling with Active/Hover State */
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
         }
-        .mobile-menu.open {
-            transform: translateX(0);
-        }
-
-        /* Canvas styling */
-        #hero-canvas {
+        .nav-link::after {
+            content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
+            width: 0;
+            height: 2px;
+            bottom: -8px; /* Adjust vertical position of the underline */
+            left: 50%;
+            background-color: #6366f1;
+            transition: all 0.3s ease-out;
+            transform: translateX(-50%);
         }
-        
-        /* Background image styling with parallax effect */
+        .nav-link:hover, .nav-link.active {
+            color: #c7d2fe; /* indigo-200 */
+        }
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        /* Hero Section Title Animation */
+        #typing-text {
+            background: linear-gradient(90deg, #a5b4fc, #f9a8d4, #a5b4fc);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: text-gradient-shine 4s linear infinite;
+        }
+
+        @keyframes text-gradient-shine {
+            to {
+                background-position: 200% center;
+            }
+        }
+
+        /* Background Section Styling */
         .bg-section {
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
             position: relative;
         }
-        .about-bg {
-            background-image: url('https://raw.githubusercontent.com/sameera-chathuranga/My-Biography/c264d9e1bea71ac3e9cfc6eb5ffdddef04320b6f/2e71981d-d204-4cb6-b03f-7be50e77850f.jpg');
-        }
-        .experience-bg {
-            background-image: url('https://raw.githubusercontent.com/sameera-chathuranga/My-Biography/153c9b9c117272b77c014cd1773b7cd33f29a9d0/221780-0-73873500-1746513580-race_compet_starting_sucess_leader_prepar_challenge-100746066-orig%20(1).webp');
-        }
-        .education-bg {
-            background-image: url('https://raw.githubusercontent.com/sameera-chathuranga/My-Biography/e14a03ce9f3d8551d219051064db210c74b1f060/library-bookshelves-filled-with-books-classic-literature-and-knowledge-repository_11479587.webp');
-        }
-        .skills-bg {
-            background-image: url('https://raw.githubusercontent.com/sameera-chathuranga/My-Biography/ecb5ccfa25111167fda6697ba645ec6e1e0652f5/AdobeStock_244900189-scaled.jpg');
-        }
-        .contact-bg {
-             background-image: url('https://raw.githubusercontent.com/sameera-chathuranga/My-Biography/main/pexels-markus-winkler-1430818-19891092.jpg?raw=true');
-        }
-        
-        /* New animation for skill cards */
-        .skill-card-container {
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 0.6s ease-out forwards;
-        }
+        .about-bg { background-image: url('https://raw.githubusercontent.com/sameera-chathuranga/My-Biography/c264d9e1bea71ac3e9cfc6eb5ffdddef04320b6f/2e71981d-d204-4cb6-b03f-7be50e77850f.jpg'); }
+        .experience-bg { background-image: url('https://raw.githubusercontent.com/sameera-chathuranga/My-Biography/153c9b9c117272b77c014cd1773b7cd33f29a9d0/221780-0-73873500-1746513580-race_compet_starting_sucess_leader_prepar_challenge-100746066-orig%20(1).webp'); }
+        .education-bg { background-image: url('https://raw.githubusercontent.com/sameera-chathuranga/My-Biography/e14a03ce9f3d8551d219051064db210c74b1f060/library-bookshelves-filled-with-books-classic-literature-and-knowledge-repository_11479587.webp'); }
+        .skills-bg { background-image: url('https://raw.githubusercontent.com/sameera-chathuranga/My-Biography/ecb5ccfa25111167fda6697ba645ec6e1e0652f5/AdobeStock_244900189-scaled.jpg'); }
+        .contact-bg { background-image: url('https://raw.githubusercontent.com/sameera-chathuranga/My-Biography/main/pexels-markus-winkler-1430818-19891092.jpg?raw=true'); }
 
-        /* 3D Tilt Effect for Education Cards */
-        .education-card-container {
-            perspective: 1000px;
-        }
-        .education-card {
-            transition: transform 0.2s ease-out;
-            transform-style: preserve-3d;
+        /* Glassmorphism Card Style */
+        .glass-card {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            background: rgba(15, 23, 42, 0.5); /* bg-slate-900 with opacity */
-            backdrop-filter: blur(12px);
+            transition: all 0.3s ease;
+        }
+        .glass-card:hover {
+            background: rgba(15, 23, 42, 0.8);
+            border: 1px solid rgba(79, 70, 229, 0.5);
+            transform: translateY(-5px);
         }
 
-        /* Spotlight effect for skill cards */
+        /* Experience Timeline */
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: -1px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, #4f46e5, rgba(15, 23, 42, 0));
+        }
+        .timeline-dot {
+            box-shadow: 0 0 0 4px #020617, 0 0 0 5px #4f46e5;
+        }
+
+        /* Skill Card Hover Effect */
         .skill-card {
-            background: rgba(15, 23, 42, 0.5); /* bg-slate-900 with opacity */
+            background: rgba(15, 23, 42, 0.6);
             border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
         }
-        .skill-card::before {
-            content: '';
-            position: absolute;
-            left: var(--mouse-x, 50%);
-            top: var(--mouse-y, 50%);
-            width: 150px;
-            height: 150px;
-            background: radial-gradient(circle at center, rgba(99, 102, 241, 0.3) 0%, transparent 70%);
-            transform: translate(-50%, -50%);
-            opacity: 0;
-            transition: opacity 0.3s ease;
+        .skill-card:hover {
+            transform: translateY(-8px) scale(1.03);
+            background: rgba(79, 70, 229, 0.2);
+            box-shadow: 0 10px 30px rgba(79, 70, 229, 0.3);
         }
-        .skill-card:hover::before {
-            opacity: 1;
+        .skill-card .icon {
+            transition: transform 0.3s ease;
         }
-        .skill-card > * {
-            transition: transform 0.3s ease, filter 0.3s ease;
+        .skill-card:hover .icon {
+            transform: scale(1.2);
         }
-        .skill-card:hover > * {
-            transform: scale(1.1);
-            filter: brightness(1.2);
-        }
+
+        /* Canvas styling */
+        #hero-canvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; }
     </style>
 </head>
-<body class="bg-slate-950 text-slate-300 font-sans leading-relaxed">
+<body class="bg-slate-950">
     
     <!-- Header & Navigation -->
-    <header class="bg-slate-900/80 backdrop-blur-md sticky top-0 z-50 shadow-lg shadow-indigo-500/10">
+    <header class="bg-slate-900/80 backdrop-blur-md sticky top-0 z-50">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-2xl font-bold text-indigo-400 hover:text-indigo-300 transition-colors">Sameera Chathuranga</a>
-            <div class="space-x-6 text-lg hidden md:flex items-center">
-                <a href="#about" class="text-slate-300 hover:text-indigo-400 transition-colors">About</a>
-                <a href="#experience" class="text-slate-300 hover:text-indigo-400 transition-colors">Experience</a>
-                <a href="#education" class="text-slate-300 hover:text-indigo-400 transition-colors">Education</a>
-                <a href="#skills" class="text-slate-300 hover:text-indigo-400 transition-colors">Skills</a>
-                <a href="#contact" class="px-5 py-2 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-full shadow-lg transition-all duration-300 transform hover:scale-105">Contact</a>
+            <a href="#" class="text-2xl font-bold text-white transition-colors logo-name">Sameera <span>Chathuranga</span></a>
+            <div class="space-x-8 text-lg hidden md:flex items-center">
+                <a href="#about" class="nav-link text-slate-300">About</a>
+                <a href="#experience" class="nav-link text-slate-300">Experience</a>
+                <a href="#education" class="nav-link text-slate-300">Education</a>
+                <a href="#skills" class="nav-link text-slate-300">Skills</a>
+                <a href="#contact" class="px-6 py-2 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-full shadow-lg transition-all duration-300 transform hover:scale-105">Contact</a>
             </div>
-            <button id="mobile-menu-button" class="md:hidden text-slate-300 hover:text-white focus:outline-none" aria-expanded="false" aria-controls="mobile-menu">
+            <button id="mobile-menu-button" class="md:hidden text-slate-300 hover:text-white" aria-label="Open menu">
                 <i data-lucide="menu" class="h-6 w-6"></i>
             </button>
         </nav>
     </header>
 
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="fixed top-0 right-0 h-full w-64 bg-slate-900/95 backdrop-blur-lg shadow-2xl z-50 mobile-menu">
+    <!-- Mobile Menu (Unchanged) -->
+    <div id="mobile-menu" class="fixed top-0 right-0 h-full w-64 bg-slate-900/95 backdrop-blur-lg shadow-2xl z-50" style="transform: translateX(100%); transition: transform 0.3s ease-out;">
         <div class="p-6">
-            <div class="flex justify-end items-center mb-8">
-                <button id="mobile-menu-close" class="text-slate-300 hover:text-white focus:outline-none">
+            <div class="flex justify-end mb-8">
+                <button id="mobile-menu-close" class="text-slate-300 hover:text-white" aria-label="Close menu">
                     <i data-lucide="x" class="h-6 w-6"></i>
                 </button>
             </div>
@@ -205,15 +199,15 @@
             <canvas id="hero-canvas"></canvas>
             <div class="absolute inset-0 bg-slate-950/70 z-10"></div>
             <div class="relative text-center max-w-4xl mx-auto p-8 z-20">
-                <img src="https://raw.githubusercontent.com/sameera-chathuranga/My-Biography/refs/heads/main/e206552e-7df7-4099-aa6e-933fa59aa77d-1_all_18051.jpg" alt="Sameera Chathuranga" class="mx-auto rounded-full w-40 h-40 object-cover border-4 border-indigo-500 shadow-2xl shadow-indigo-500/40 mb-6 transform transition-transform duration-500 hover:scale-105 animate-fade-in" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/160x160/0f172a/818cf8?text=SC';">
-                <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight text-white animate-fade-in-down">
+                <img src="https://raw.githubusercontent.com/sameera-chathuranga/My-Biography/refs/heads/main/e206552e-7df7-4099-aa6e-933fa59aa77d-1_all_18051.jpg" alt="Sameera Chathuranga" class="mx-auto rounded-full w-40 h-40 object-cover border-4 border-indigo-500 shadow-2xl shadow-indigo-500/40 mb-6 animate-fade-in" style="animation-delay: 0.2s;" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/160x160/0f172a/818cf8?text=SC';">
+                <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight text-white animate-fade-in-up" style="animation-delay: 0.4s;">
                     Hello, I'm <span class="text-indigo-400">Sameera Chathuranga</span>
                 </h1>
-                <p class="text-2xl md:text-3xl text-slate-300 mt-4 animate-fade-in-up">
-                    Cost Account Executive
-                </p>
-                <div class="mt-8 flex justify-center gap-4 animate-fade-in-up" style="animation-delay: 0.5s;">
-                    <a href="#contact" class="inline-flex items-center gap-2 px-8 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-full shadow-lg transition-all duration-300 transform hover:scale-105 glow-effect">
+                <div class="text-2xl md:text-3xl text-slate-300 mt-4 h-12 flex justify-center items-center animate-fade-in-up" style="animation-delay: 0.6s;">
+                    <p id="typing-text">Cost Account Executive</p>
+                </div>
+                <div class="mt-8 flex flex-wrap justify-center gap-4 animate-fade-in-up" style="animation-delay: 0.8s;">
+                    <a href="#contact" class="inline-flex items-center gap-2 px-8 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-full shadow-lg transition-all duration-300 transform hover:scale-105">
                         <i data-lucide="send" class="h-5 w-5"></i>
                         Contact Me
                     </a>
@@ -223,11 +217,11 @@
 
         <!-- About Me Section -->
         <section id="about" class="py-24 bg-section about-bg">
-            <div class="absolute inset-0 bg-slate-900/80 z-0"></div>
+            <div class="absolute inset-0 bg-slate-950/80"></div>
             <div class="relative z-10 container mx-auto px-6 max-w-4xl text-center">
                 <h2 class="text-4xl md:text-5xl font-bold text-white mb-4 animate-fade-in">About Me</h2>
                 <div class="w-24 h-1 bg-indigo-500 mx-auto mb-12"></div>
-                <div class="bg-black/20 backdrop-blur-lg border border-white/10 rounded-2xl shadow-2xl p-8 md:p-12 text-lg text-slate-300 animate-fade-in-up">
+                <div class="glass-card rounded-2xl shadow-2xl p-8 md:p-12 text-lg text-slate-300 animate-fade-in-up">
                     <p class="mb-4">
                         I am a results-driven Cost Account Executive with a BSc (Hons) in Accountancy and Finance. Skilled in financial analysis and costing, I combine strong academic knowledge with hands-on experience to enhance organisational financial performance.
                     </p>
@@ -240,14 +234,13 @@
 
         <!-- Professional Experience Section -->
         <section id="experience" class="py-24 bg-section experience-bg">
-            <div class="absolute inset-0 bg-slate-950/80 z-0"></div>
+            <div class="absolute inset-0 bg-slate-950/80"></div>
             <div class="relative z-10 container mx-auto px-6 max-w-5xl">
-                <h2 class="text-4xl md:text-5xl font-bold text-center text-white mb-4 animate-fade-in">Professional Experience</h2>
-                <div class="w-24 h-1 bg-indigo-500 mx-auto mb-16"></div>
-                <div class="relative border-l-2 border-slate-700 ml-4 md:ml-0">
+                <h2 class="text-4xl md:text-5xl font-bold text-center text-white mb-16 animate-fade-in">Professional Experience</h2>
+                <div class="relative timeline ml-4 md:ml-0">
                     <!-- Experience Item 1 -->
-                    <div class="mb-12 pl-8 md:pl-12 relative animate-fade-in-up">
-                        <div class="absolute -left-4 top-1 h-7 w-7 bg-indigo-500 rounded-full border-4 border-slate-950"></div>
+                    <div class="mb-12 pl-10 md:pl-12 relative animate-fade-in-up">
+                        <div class="absolute -left-3 top-1 h-6 w-6 bg-indigo-500 rounded-full timeline-dot"></div>
                         <h3 class="text-2xl font-bold text-indigo-400 mb-1">Cost Account Executive</h3>
                         <p class="text-slate-400 text-md mb-3">Star Holdings International PVT Ltd | Nov 2023 - Present</p>
                         <ul class="list-disc list-inside text-slate-300 space-y-2">
@@ -259,8 +252,8 @@
                         </ul>
                     </div>
                     <!-- Experience Item 2 -->
-                    <div class="mb-12 pl-8 md:pl-12 relative animate-fade-in-up" style="animation-delay: 0.2s;">
-                        <div class="absolute -left-4 top-1 h-7 w-7 bg-indigo-500 rounded-full border-4 border-slate-950"></div>
+                    <div class="mb-12 pl-10 md:pl-12 relative animate-fade-in-up" style="animation-delay: 0.2s;">
+                        <div class="absolute -left-3 top-1 h-6 w-6 bg-indigo-500 rounded-full timeline-dot"></div>
                         <h3 class="text-2xl font-bold text-indigo-400 mb-1">Finance Trainee</h3>
                         <p class="text-slate-400 text-md mb-3">Sri Lanka Port Authority | Mar 2023 - Sep 2023</p>
                         <ul class="list-disc list-inside text-slate-300 space-y-2">
@@ -276,59 +269,38 @@
 
         <!-- Education Section -->
         <section id="education" class="py-24 bg-section education-bg">
-            <div class="absolute inset-0 bg-slate-900/80 z-0"></div>
-            <div class="relative z-10 container mx-auto px-6 max-w-5xl">
-                <h2 class="text-4xl md:text-5xl font-bold text-center text-white mb-4 animate-fade-in">Education & Certifications</h2>
-                <div class="w-24 h-1 bg-indigo-500 mx-auto mb-16"></div>
+            <div class="absolute inset-0 bg-slate-950/80"></div>
+            <div class="relative z-10 container mx-auto px-6 max-w-6xl">
+                <h2 class="text-4xl md:text-5xl font-bold text-center text-white mb-16 animate-fade-in">Education & Certifications</h2>
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Education Card 1 -->
-                    <div class="education-card-container animate-fade-in-up">
-                        <div class="education-card p-6 rounded-xl shadow-lg">
-                            <h3 class="text-xl font-bold text-indigo-400 mb-1">B.Sc. (Hons) Accountancy & Business Finance</h3>
-                            <p class="text-slate-400">Wayamba University of Sri Lanka | 2019 - 2023</p>
-                        </div>
+                    <!-- Education Cards -->
+                    <div class="glass-card p-6 rounded-xl animate-fade-in-up" style="animation-delay: 0.1s;">
+                        <h3 class="text-xl font-bold text-indigo-400 mb-1">B.Sc. (Hons) Accountancy & Business Finance</h3>
+                        <p class="text-slate-400">Wayamba University of Sri Lanka | 2019 - 2023</p>
                     </div>
-                    <!-- Education Card 2 -->
-                    <div class="education-card-container animate-fade-in-up" style="animation-delay: 0.1s;">
-                        <div class="education-card p-6 rounded-xl shadow-lg">
-                            <h3 class="text-xl font-bold text-indigo-400 mb-1">Certified Management Accountant (CMA)</h3>
-                            <p class="text-slate-400">CMA Sri Lanka | Managerial Level Completed</p>
-                        </div>
+                    <div class="glass-card p-6 rounded-xl animate-fade-in-up" style="animation-delay: 0.2s;">
+                        <h3 class="text-xl font-bold text-indigo-400 mb-1">Certified Management Accountant (CMA)</h3>
+                        <p class="text-slate-400">CMA Sri Lanka | Managerial Level Completed</p>
                     </div>
-                    <!-- Education Card 3 -->
-                    <div class="education-card-container animate-fade-in-up" style="animation-delay: 0.2s;">
-                        <div class="education-card p-6 rounded-xl shadow-lg">
-                            <h3 class="text-xl font-bold text-indigo-400 mb-1">CA Sri Lanka Business Level I</h3>
-                            <p class="text-slate-400">Successfully completed the examination.</p>
-                        </div>
+                    <div class="glass-card p-6 rounded-xl animate-fade-in-up" style="animation-delay: 0.3s;">
+                        <h3 class="text-xl font-bold text-indigo-400 mb-1">CA Sri Lanka Business Level I</h3>
+                        <p class="text-slate-400">Successfully completed the examination.</p>
                     </div>
-                     <!-- Education Card 4 -->
-                    <div class="education-card-container animate-fade-in-up" style="animation-delay: 0.3s;">
-                        <div class="education-card p-6 rounded-xl shadow-lg">
-                            <h3 class="text-xl font-bold text-indigo-400 mb-1">G.C.E Advanced & Ordinary Level</h3>
-                            <p class="text-slate-400">G/Batemulla National School</p>
-                        </div>
+                    <div class="glass-card p-6 rounded-xl animate-fade-in-up" style="animation-delay: 0.4s;">
+                        <h3 class="text-xl font-bold text-indigo-400 mb-1">G.C.E Advanced & Ordinary Level</h3>
+                        <p class="text-slate-400">G/Batemulla National School</p>
                     </div>
-                    <!-- New Qualification 1 -->
-                    <div class="education-card-container animate-fade-in-up" style="animation-delay: 0.4s;">
-                        <div class="education-card p-6 rounded-xl shadow-lg">
-                            <h3 class="text-xl font-bold text-indigo-400 mb-1">Harnessing the Power of Data with Power BI</h3>
-                            <p class="text-slate-400">Microsoft | Issued Oct 2024</p>
-                        </div>
+                    <div class="glass-card p-6 rounded-xl animate-fade-in-up" style="animation-delay: 0.5s;">
+                        <h3 class="text-xl font-bold text-indigo-400 mb-1">Harnessing the Power of Data with Power BI</h3>
+                        <p class="text-slate-400">Microsoft | Issued Oct 2024</p>
                     </div>
-                    <!-- New Qualification 2 -->
-                    <div class="education-card-container animate-fade-in-up" style="animation-delay: 0.5s;">
-                        <div class="education-card p-6 rounded-xl shadow-lg">
-                            <h3 class="text-xl font-bold text-indigo-400 mb-1">Preparing Data for Analysis with Microsoft Excel</h3>
-                            <p class="text-slate-400">Microsoft | Issued Sep 2024</p>
-                        </div>
+                    <div class="glass-card p-6 rounded-xl animate-fade-in-up" style="animation-delay: 0.6s;">
+                        <h3 class="text-xl font-bold text-indigo-400 mb-1">Preparing Data for Analysis with Microsoft Excel</h3>
+                        <p class="text-slate-400">Microsoft | Issued Sep 2024</p>
                     </div>
-                    <!-- New Qualification 3 -->
-                    <div class="education-card-container animate-fade-in-up" style="animation-delay: 0.6s;">
-                        <div class="education-card p-6 rounded-xl shadow-lg">
-                            <h3 class="text-xl font-bold text-indigo-400 mb-1">Diploma in Financial Accounting</h3>
-                            <p class="text-slate-400">Alison | Issued Aug 2024</p>
-                        </div>
+                    <div class="glass-card p-6 rounded-xl animate-fade-in-up" style="animation-delay: 0.7s;">
+                        <h3 class="text-xl font-bold text-indigo-400 mb-1">Diploma in Financial Accounting</h3>
+                        <p class="text-slate-400">Alison | Issued Aug 2024</p>
                     </div>
                 </div>
             </div>
@@ -336,69 +308,45 @@
 
         <!-- Skills Section -->
         <section id="skills" class="py-24 bg-section skills-bg">
-            <div class="absolute inset-0 bg-slate-950/80 z-0"></div>
+            <div class="absolute inset-0 bg-slate-950/80"></div>
             <div class="relative z-10 container mx-auto px-6 max-w-6xl text-center">
-                <h2 class="text-4xl md:text-5xl font-bold text-white mb-4 animate-fade-in">My Skill Set</h2>
-                <div class="w-24 h-1 bg-indigo-500 mx-auto mb-6"></div>
-                <p class="max-w-3xl mx-auto text-slate-400 text-lg mb-16 animate-fade-in-up">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-6 animate-fade-in">My Skill Set</h2>
+                <p class="max-w-3xl mx-auto text-slate-400 text-lg mb-16 animate-fade-in-up" style="animation-delay: 0.2s;">
                     A blend of technical expertise and professional skills, enabling me to deliver comprehensive financial insights and drive business performance.
                 </p>
-                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-                    <!-- Skill Card 1 -->
-                    <div class="skill-card-container" style="animation-delay: 0s;">
-                        <div class="skill-card p-6 rounded-xl shadow-lg flex flex-col items-center justify-center">
-                            <i data-lucide="bar-chart-2" class="h-12 w-12 text-sky-400 mb-4 relative z-10"></i>
-                            <h3 class="text-lg font-semibold text-white relative z-10">Financial Analysis</h3>
-                        </div>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+                    <!-- Skill Cards -->
+                    <div class="skill-card p-6 rounded-xl flex flex-col items-center justify-center animate-fade-in-up" style="animation-delay: 0s;">
+                        <i data-lucide="bar-chart-2" class="h-12 w-12 text-sky-400 mb-4 icon"></i>
+                        <h3 class="text-lg font-semibold text-white">Financial Analysis</h3>
                     </div>
-                    <!-- Skill Card 2 -->
-                    <div class="skill-card-container" style="animation-delay: 0.1s;">
-                        <div class="skill-card p-6 rounded-xl shadow-lg flex flex-col items-center justify-center">
-                            <i data-lucide="calculator" class="h-12 w-12 text-teal-400 mb-4 relative z-10"></i>
-                            <h3 class="text-lg font-semibold text-white relative z-10">Costing & Budgeting</h3>
-                        </div>
+                    <div class="skill-card p-6 rounded-xl flex flex-col items-center justify-center animate-fade-in-up" style="animation-delay: 0.1s;">
+                        <i data-lucide="calculator" class="h-12 w-12 text-teal-400 mb-4 icon"></i>
+                        <h3 class="text-lg font-semibold text-white">Costing & Budgeting</h3>
                     </div>
-                    <!-- Skill Card 3 -->
-                    <div class="skill-card-container" style="animation-delay: 0.2s;">
-                        <div class="skill-card p-6 rounded-xl shadow-lg flex flex-col items-center justify-center">
-                            <i data-lucide="trending-up" class="h-12 w-12 text-emerald-400 mb-4 relative z-10"></i>
-                            <h3 class="text-lg font-semibold text-white relative z-10">Financial Modeling</h3>
-                        </div>
+                    <div class="skill-card p-6 rounded-xl flex flex-col items-center justify-center animate-fade-in-up" style="animation-delay: 0.2s;">
+                        <i data-lucide="trending-up" class="h-12 w-12 text-emerald-400 mb-4 icon"></i>
+                        <h3 class="text-lg font-semibold text-white">Financial Modeling</h3>
                     </div>
-                    <!-- Skill Card 4 -->
-                    <div class="skill-card-container" style="animation-delay: 0.3s;">
-                        <div class="skill-card p-6 rounded-xl shadow-lg flex flex-col items-center justify-center">
-                            <i data-lucide="pie-chart" class="h-12 w-12 text-rose-400 mb-4 relative z-10"></i>
-                            <h3 class="text-lg font-semibold text-white relative z-10">Power BI & Data Viz</h3>
-                        </div>
+                    <div class="skill-card p-6 rounded-xl flex flex-col items-center justify-center animate-fade-in-up" style="animation-delay: 0.3s;">
+                        <i data-lucide="pie-chart" class="h-12 w-12 text-rose-400 mb-4 icon"></i>
+                        <h3 class="text-lg font-semibold text-white">Power BI & Data Viz</h3>
                     </div>
-                    <!-- Skill Card 5 -->
-                    <div class="skill-card-container" style="animation-delay: 0.4s;">
-                        <div class="skill-card p-6 rounded-xl shadow-lg flex flex-col items-center justify-center">
-                            <i data-lucide="file-spreadsheet" class="h-12 w-12 text-amber-400 mb-4 relative z-10"></i>
-                            <h3 class="text-lg font-semibold text-white relative z-10">Advanced Excel</h3>
-                        </div>
+                    <div class="skill-card p-6 rounded-xl flex flex-col items-center justify-center animate-fade-in-up" style="animation-delay: 0.4s;">
+                        <i data-lucide="file-spreadsheet" class="h-12 w-12 text-amber-400 mb-4 icon"></i>
+                        <h3 class="text-lg font-semibold text-white">Advanced Excel</h3>
                     </div>
-                    <!-- Skill Card 6 -->
-                    <div class="skill-card-container" style="animation-delay: 0.5s;">
-                        <div class="skill-card p-6 rounded-xl shadow-lg flex flex-col items-center justify-center">
-                            <i data-lucide="database" class="h-12 w-12 text-violet-400 mb-4 relative z-10"></i>
-                            <h3 class="text-lg font-semibold text-white relative z-10">ERP Systems</h3>
-                        </div>
+                    <div class="skill-card p-6 rounded-xl flex flex-col items-center justify-center animate-fade-in-up" style="animation-delay: 0.5s;">
+                        <i data-lucide="database" class="h-12 w-12 text-violet-400 mb-4 icon"></i>
+                        <h3 class="text-lg font-semibold text-white">ERP Systems</h3>
                     </div>
-                    <!-- Skill Card 7 -->
-                    <div class="skill-card-container" style="animation-delay: 0.6s;">
-                        <div class="skill-card p-6 rounded-xl shadow-lg flex flex-col items-center justify-center">
-                            <i data-lucide="lightbulb" class="h-12 w-12 text-cyan-400 mb-4 relative z-10"></i>
-                            <h3 class="text-lg font-semibold text-white relative z-10">Problem Solving</h3>
-                        </div>
+                    <div class="skill-card p-6 rounded-xl flex flex-col items-center justify-center animate-fade-in-up" style="animation-delay: 0.6s;">
+                        <i data-lucide="lightbulb" class="h-12 w-12 text-cyan-400 mb-4 icon"></i>
+                        <h3 class="text-lg font-semibold text-white">Problem Solving</h3>
                     </div>
-                    <!-- Skill Card 8 -->
-                    <div class="skill-card-container" style="animation-delay: 0.7s;">
-                        <div class="skill-card p-6 rounded-xl shadow-lg flex flex-col items-center justify-center">
-                            <i data-lucide="users" class="h-12 w-12 text-fuchsia-400 mb-4 relative z-10"></i>
-                            <h3 class="text-lg font-semibold text-white relative z-10">Team Collaboration</h3>
-                        </div>
+                    <div class="skill-card p-6 rounded-xl flex flex-col items-center justify-center animate-fade-in-up" style="animation-delay: 0.7s;">
+                        <i data-lucide="users" class="h-12 w-12 text-fuchsia-400 mb-4 icon"></i>
+                        <h3 class="text-lg font-semibold text-white">Team Collaboration</h3>
                     </div>
                 </div>
             </div>
@@ -406,29 +354,19 @@
 
         <!-- Contact Section -->
         <section id="contact" class="py-24 bg-section contact-bg">
-            <div class="absolute inset-0 bg-slate-950/80 z-0"></div>
+            <div class="absolute inset-0 bg-slate-950/80"></div>
             <div class="relative z-10 container mx-auto px-4 max-w-2xl">
-                <h2 class="text-4xl md:text-5xl font-bold text-center text-white mb-4 animate-fade-in">Get in Touch</h2>
-                <div class="w-24 h-1 bg-indigo-500 mx-auto mb-12"></div>
-                <div class="bg-black/20 backdrop-blur-lg border border-white/10 rounded-2xl shadow-2xl p-8 text-center animate-fade-in-up">
-                    <p class="text-slate-300 text-lg mb-6">
+                <h2 class="text-4xl md:text-5xl font-bold text-center text-white mb-12 animate-fade-in">Get in Touch</h2>
+                <div class="glass-card rounded-2xl shadow-2xl p-8 animate-fade-in-up">
+                    <p class="text-slate-300 text-lg mb-6 text-center">
                         I'm always open to new opportunities and collaborations. Feel free to reach out!
                     </p>
-                    <form action="https://formspree.io/f/xgvzdqda" method="POST" id="contact-form" class="space-y-4 text-left">
-                        <div>
-                            <label for="name" class="sr-only">Name</label>
-                            <input type="text" id="name" name="name" placeholder="Your Name" required class="w-full px-4 py-2 bg-slate-900/60 border border-slate-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 backdrop-blur-sm">
-                        </div>
-                        <div>
-                            <label for="email" class="sr-only">Email</label>
-                            <input type="email" id="email" name="email" placeholder="Your Email" required class="w-full px-4 py-2 bg-slate-900/60 border border-slate-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 backdrop-blur-sm">
-                        </div>
-                        <div>
-                            <label for="message" class="sr-only">Message</label>
-                            <textarea id="message" name="message" rows="4" placeholder="Your Message..." required class="w-full px-4 py-2 bg-slate-900/60 border border-slate-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 backdrop-blur-sm"></textarea>
-                        </div>
+                    <form action="https://formspree.io/f/xgvzdqda" method="POST" id="contact-form" class="space-y-4">
+                        <input type="text" name="name" placeholder="Your Name" required class="w-full px-4 py-3 bg-slate-800/60 border border-slate-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                        <input type="email" name="email" placeholder="Your Email" required class="w-full px-4 py-3 bg-slate-800/60 border border-slate-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                        <textarea name="message" rows="4" placeholder="Your Message..." required class="w-full px-4 py-3 bg-slate-800/60 border border-slate-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"></textarea>
                         <div class="text-center">
-                            <button type="submit" id="submit-button" class="px-8 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-full shadow-lg transition-all duration-300 transform hover:scale-105 glow-effect">
+                            <button type="submit" id="submit-button" class="px-8 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-full shadow-lg transition-all duration-300 transform hover:scale-105">
                                 Send Message
                             </button>
                         </div>
@@ -440,248 +378,169 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-slate-950 py-8 text-center text-slate-400 text-sm">
+    <footer class="bg-slate-950 py-8 text-center text-slate-400">
         <div class="container mx-auto px-4">
             <div class="flex justify-center space-x-6 mb-4">
-                <a href="https://www.linkedin.com/in/sameera-chathuranga307?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile" class="text-slate-400 hover:text-indigo-400 transition-colors">
-                    <i data-lucide="linkedin" class="h-6 w-6"></i>
-                </a>
-                <a href="https://www.facebook.com/share/1AM8WGTAd9/" target="_blank" rel="noopener noreferrer" aria-label="Facebook Profile" class="text-slate-400 hover:text-indigo-400 transition-colors">
-                    <i data-lucide="facebook" class="h-6 w-6"></i>
-                </a>
-                <a href="https://x.com/Sameera________?t=sYhddCefBGLQRP9ttk6SrA&s=09" target="_blank" rel="noopener noreferrer" aria-label="X Profile" class="text-slate-400 hover:text-indigo-400 transition-colors">
-                    <i data-lucide="twitter" class="h-6 w-6"></i>
-                </a>
+                <a href="https://www.linkedin.com/in/sameera-chathuranga307?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="text-slate-400 hover:text-indigo-400 transition-colors"><i data-lucide="linkedin" class="h-6 w-6"></i></a>
+                <a href="https://www.facebook.com/share/1AM8WGTAd9/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="text-slate-400 hover:text-indigo-400 transition-colors"><i data-lucide="facebook" class="h-6 w-6"></i></a>
+                <a href="https://x.com/Sameera________?t=sYhddCefBGLQRP9ttk6SrA&s=09" target="_blank" rel="noopener noreferrer" aria-label="X" class="text-slate-400 hover:text-indigo-400 transition-colors"><i data-lucide="twitter" class="h-6 w-6"></i></a>
             </div>
             <p>&copy; <span id="year"></span> Sameera Chathuranga. All Rights Reserved.</p>
         </div>
     </footer>
 
     <script>
-        // Immediately call the function to replace the icons
         lucide.createIcons();
 
         document.addEventListener('DOMContentLoaded', () => {
-            // Mobile Menu Toggle Logic
+            // Mobile Menu Logic
             const mobileMenuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
             const mobileMenuClose = document.getElementById('mobile-menu-close');
-
-            const toggleMenu = () => {
-                const isOpen = mobileMenu.classList.toggle('open');
-                mobileMenuButton.setAttribute('aria-expanded', isOpen);
-            };
-
+            const toggleMenu = () => mobileMenu.style.transform = mobileMenu.style.transform === 'translateX(0%)' ? 'translateX(100%)' : 'translateX(0%)';
             mobileMenuButton.addEventListener('click', toggleMenu);
             mobileMenuClose.addEventListener('click', toggleMenu);
+            mobileMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', toggleMenu));
 
-            mobileMenu.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', () => {
-                    mobileMenu.classList.remove('open');
-                    mobileMenuButton.setAttribute('aria-expanded', 'false');
+            // Set Copyright Year
+            document.getElementById('year').textContent = new Date().getFullYear();
+            
+            // Active navigation link on scroll
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('header nav a.nav-link');
+
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.4 // 40% of the section should be visible
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const id = entry.target.getAttribute('id');
+                        navLinks.forEach(link => {
+                            link.classList.remove('active');
+                            if (link.getAttribute('href') === `#${id}`) {
+                                link.classList.add('active');
+                            }
+                        });
+                    }
                 });
+            }, observerOptions);
+
+            sections.forEach(section => {
+                observer.observe(section);
             });
 
-            // Set dynamic copyright year
-            document.getElementById('year').textContent = new Date().getFullYear();
 
-            // Form Submission Handling
+            // Contact Form
             const form = document.getElementById('contact-form');
-            const submitButton = document.getElementById('submit-button');
             const messageBox = document.getElementById('form-message-box');
-
-            function showMessage(message, type) {
-                messageBox.textContent = message;
-                messageBox.className = 'mt-4 px-4 py-2 rounded-lg text-center text-white'; // Reset classes
-                messageBox.classList.remove('hidden');
-                messageBox.classList.add(type === 'success' ? 'bg-green-500' : 'bg-red-500');
-                
-                setTimeout(() => {
-                    messageBox.classList.add('hidden');
-                }, 5000);
-            }
-
             form.addEventListener('submit', async (e) => {
                 e.preventDefault();
+                const submitButton = document.getElementById('submit-button');
                 submitButton.disabled = true;
                 submitButton.innerHTML = 'Sending...';
-
                 try {
                     const response = await fetch(form.action, {
-                        method: form.method,
-                        body: new FormData(form),
-                        headers: { 'Accept': 'application/json' }
+                        method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' }
                     });
                     if (response.ok) {
-                        showMessage('Message sent successfully!', 'success');
+                        messageBox.textContent = 'Message sent successfully!';
+                        messageBox.className = 'mt-4 px-4 py-2 rounded-lg text-center text-white bg-green-500';
                         form.reset();
-                    } else {
-                        throw new Error('Form submission failed');
-                    }
+                    } else { throw new Error('Network response was not ok.'); }
                 } catch (error) {
-                    showMessage('Error sending message. Please try again.', 'error');
+                    messageBox.textContent = 'Error sending message. Please try again.';
+                    messageBox.className = 'mt-4 px-4 py-2 rounded-lg text-center text-white bg-red-500';
                 } finally {
                     submitButton.disabled = false;
                     submitButton.innerHTML = 'Send Message';
+                    setTimeout(() => messageBox.className += ' hidden', 5000);
                 }
             });
 
-            // Canvas Particle Animation
+            // Hero Canvas Animation
             const canvas = document.getElementById('hero-canvas');
             const ctx = canvas.getContext('2d');
             let particles = [];
-            const particleCount = 100; // Increased particle count
-            const maxDistance = 100;
-
-            // Mouse position object
-            const mouse = {
-                x: null,
-                y: null,
-                radius: 150 // Area of effect for mouse interaction
-            };
-
-            window.addEventListener('mousemove', (event) => {
-                mouse.x = event.x;
-                mouse.y = event.y;
-            });
-            window.addEventListener('mouseout', () => {
-                mouse.x = null;
-                mouse.y = null;
-            });
-
-
+            const particleCount = 80;
+            const maxDistance = 120;
+            let mouse = { x: null, y: null, radius: 150 };
+            window.addEventListener('mousemove', e => { mouse.x = e.x; mouse.y = e.y; });
+            window.addEventListener('mouseout', () => { mouse.x = null; mouse.y = null; });
+            
             const resizeCanvas = () => {
                 canvas.width = window.innerWidth;
-                canvas.height = window.innerHeight;
-                initParticles();
+                canvas.height = document.getElementById('hero').offsetHeight;
+                particles = [];
+                for (let i = 0; i < particleCount; i++) particles.push(new Particle());
             };
-
-            window.addEventListener('resize', resizeCanvas);
 
             class Particle {
                 constructor() {
                     this.x = Math.random() * canvas.width;
                     this.y = Math.random() * canvas.height;
-                    this.size = Math.random() * 2.5 + 1; // Varied sizes for depth
-                    this.speedX = Math.random() * 0.8 - 0.4; // Varied speeds
-                    this.speedY = Math.random() * 0.8 - 0.4;
-                    this.color = `rgba(129, 140, 248, ${Math.random() * 0.5 + 0.3})`; // Indigo with random opacity
-                    this.opacity = Math.random() * 0.5 + 0.2;
-                    this.opacityDirection = 1;
+                    this.size = Math.random() * 2 + 1;
+                    this.speedX = Math.random() * 1 - 0.5;
+                    this.speedY = Math.random() * 1 - 0.5;
                 }
-
                 update() {
-                    // Wall collision
-                    if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
-                    if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
-
-                    // Mouse interaction - repulsion
-                    if (mouse.x !== null) {
-                        const dx = mouse.x - this.x;
-                        const dy = mouse.y - this.y;
-                        const distance = Math.sqrt(dx * dx + dy * dy);
-                        if (distance < mouse.radius) {
-                            const forceDirectionX = dx / distance;
-                            const forceDirectionY = dy / distance;
-                            const force = (mouse.radius - distance) / mouse.radius;
-                            this.x -= forceDirectionX * force * 2;
-                            this.y -= forceDirectionY * force * 2;
-                        } else {
-                            this.x += this.speedX;
-                            this.y += this.speedY;
-                        }
-                    } else {
-                         this.x += this.speedX;
-                         this.y += this.speedY;
-                    }
+                    if (this.x > canvas.width || this.x < 0) this.speedX *= -1;
+                    if (this.y > canvas.height || this.y < 0) this.speedY *= -1;
                     
-                    // Twinkling effect
-                    if (this.opacityDirection) {
-                        this.opacity += 0.005;
-                        if (this.opacity >= 1) this.opacityDirection = 0;
+                    let dx = mouse.x - this.x;
+                    let dy = mouse.y - this.y;
+                    let distance = Math.sqrt(dx*dx + dy*dy);
+                    if(distance < mouse.radius) {
+                        this.x += this.speedX * 3;
+                        this.y += this.speedY * 3;
                     } else {
-                        this.opacity -= 0.005;
-                        if (this.opacity <= 0.1) this.opacityDirection = 1;
+                        this.x += this.speedX;
+                        this.y += this.speedY;
                     }
                 }
-
                 draw() {
-                    ctx.fillStyle = `rgba(129, 140, 248, ${this.opacity})`;
+                    ctx.fillStyle = 'rgba(79, 70, 229, 0.6)';
                     ctx.beginPath();
                     ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
                     ctx.fill();
                 }
             }
 
-            function initParticles() {
-                particles = [];
-                for (let i = 0; i < particleCount; i++) {
-                    particles.push(new Particle());
-                }
-            }
-
-            function connectParticles() {
-                for (let i = 0; i < particles.length; i++) {
-                    for (let j = i; j < particles.length; j++) {
-                        const dx = particles[i].x - particles[j].x;
-                        const dy = particles[i].y - particles[j].y;
-                        const distance = Math.sqrt(dx * dx + dy * dy);
-
-                        if (distance < maxDistance) {
-                            const opacity = 1 - distance / maxDistance;
-                            ctx.strokeStyle = `rgba(129, 140, 248, ${opacity * 0.8})`;
+            function connect() {
+                for (let a = 0; a < particles.length; a++) {
+                    for (let b = a; b < particles.length; b++) {
+                        let distance = ((particles[a].x - particles[b].x) * (particles[a].x - particles[b].x))
+                            + ((particles[a].y - particles[b].y) * (particles[a].y - particles[b].y));
+                        if (distance < (maxDistance * maxDistance)) {
+                            ctx.strokeStyle = `rgba(79, 70, 229, ${1 - distance / (maxDistance*maxDistance)})`;
                             ctx.lineWidth = 0.5;
                             ctx.beginPath();
-                            ctx.moveTo(particles[i].x, particles[i].y);
-                            ctx.lineTo(particles[j].x, particles[j].y);
+                            ctx.moveTo(particles[a].x, particles[a].y);
+                            ctx.lineTo(particles[b].x, particles[b].y);
                             ctx.stroke();
                         }
                     }
                 }
             }
-
+            
             function animate() {
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
-                particles.forEach(p => {
-                    p.update();
-                    p.draw();
-                });
-                connectParticles();
+                for (let i = 0; i < particles.length; i++) {
+                    particles[i].update();
+                    particles[i].draw();
+                }
+                connect();
                 requestAnimationFrame(animate);
             }
-
-            // 3D Tilt Effect for Education Cards
-            document.querySelectorAll('.education-card').forEach(card => {
-                card.addEventListener('mousemove', (e) => {
-                    const rect = card.getBoundingClientRect();
-                    const x = e.clientX - rect.left;
-                    const y = e.clientY - rect.top;
-                    const { width, height } = rect;
-                    const rotateX = (y / height - 0.5) * -25; // Tilt intensity
-                    const rotateY = (x / width - 0.5) * 25;
-
-                    card.style.transform = `scale(1.05) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-                });
-
-                card.addEventListener('mouseleave', () => {
-                    card.style.transform = 'scale(1) rotateX(0) rotateY(0)';
-                });
-            });
-
-            // Spotlight effect for Skill Cards
-            document.querySelectorAll('.skill-card').forEach(card => {
-                card.addEventListener('mousemove', (e) => {
-                    const rect = card.getBoundingClientRect();
-                    const x = e.clientX - rect.left;
-                    const y = e.clientY - rect.top;
-                    card.style.setProperty('--mouse-x', `${x}px`);
-                    card.style.setProperty('--mouse-y', `${y}px`);
-                });
-            });
-
+            
+            window.addEventListener('resize', resizeCanvas);
             resizeCanvas();
             animate();
         });
     </script>
 </body>
 </html>
+
