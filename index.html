@@ -4,543 +4,547 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sameera Chathuranga - Cost Account Executive</title>
-    <meta name="description" content="Sameera Chathuranga, a Cost Account Executive with expertise in financial analysis, costing, and budgeting. Explore my portfolio to learn about my experience and skills.">
-    <meta name="keywords" content="Sameera Chathuranga, Cost Account Executive, financial analysis, accounting, portfolio">
-    <meta property="og:title" content="Sameera Chathuranga - Cost Account Executive">
-    <meta property="og:description" content="Explore the professional portfolio of Sameera Chathuranga, a skilled Cost Account Executive.">
-    <meta property="og:image" content="https://raw.githubusercontent.com/sameera-chathuranga/My-Biography/refs/heads/main/e206552e-7df7-4099-aa6e-933fa59aa77d-1_all_18051.jpg">
-    <meta property="og:url" content="https://sameera-chathuranga.github.io">
-    <meta name="twitter:card" content="summary_large_image">
-
-    <!-- Load Tailwind CSS from CDN -->
+    <meta name="description" content="Sameera Chathuranga, a Cost Account Executive with expertise in financial analysis, costing, and budgeting.">
+    
+    <!-- Tailwind CSS (Play CDN) -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Load Inter font for clean typography -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- Load Lucide Icons -->
+    <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
-    <style>
-        /* Apply the Inter font to the entire body */
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #020617; /* bg-slate-950 */
-            color: #cbd5e1; /* slate-300 */
-        }
-
-        /* Custom scrollbar for better user experience on desktop */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #0f172a; }
-        ::-webkit-scrollbar-thumb { background: #4f46e5; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #6366f1; }
-
-        /* General Animations */
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-        .animate-fade-in { animation: fadeIn 1s ease-out forwards; }
-        .animate-fade-in-up { opacity: 0; animation: fadeInUp 0.8s ease-out forwards; }
-
-        /* Header Styling */
-        header {
-            border-bottom: 1px solid rgba(79, 70, 229, 0.2);
-        }
-        
-        /* Stylized Name in Header */
-        .logo-name span {
-            color: #818cf8; /* indigo-400 */
-        }
-
-        /* Navigation Link Styling with Active/Hover State */
-        .nav-link {
-            position: relative;
-            transition: color 0.3s ease;
-        }
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -8px; /* Adjust vertical position of the underline */
-            left: 50%;
-            background-color: #6366f1;
-            transition: all 0.3s ease-out;
-            transform: translateX(-50%);
-        }
-        .nav-link:hover, .nav-link.active {
-            color: #c7d2fe; /* indigo-200 */
-        }
-        .nav-link:hover::after,
-        .nav-link.active::after {
-            width: 100%;
-        }
-
-        /* Hero Section Title Animation */
-        #typing-text {
-            background: linear-gradient(90deg, #a5b4fc, #f9a8d4, #a5b4fc);
-            background-size: 200% auto;
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            animation: text-gradient-shine 4s linear infinite;
-        }
-
-        @keyframes text-gradient-shine {
-            to {
-                background-position: 200% center;
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        background: '#030014',
+                        primary: '#6366f1',
+                    },
+                    animation: {
+                        'blob': 'blob 7s infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        }
+                    }
+                }
             }
         }
+    </script>
 
-        /* Background Section Styling */
-        .bg-section {
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            position: relative;
-        }
-        .about-bg { background-image: url('https://raw.githubusercontent.com/sameera-chathuranga/My-Biography/c264d9e1bea71ac3e9cfc6eb5ffdddef04320b6f/2e71981d-d204-4cb6-b03f-7be50e77850f.jpg'); }
-        .experience-bg { background-image: url('https://raw.githubusercontent.com/sameera-chathuranga/My-Biography/153c9b9c117272b77c014cd1773b7cd33f29a9d0/221780-0-73873500-1746513580-race_compet_starting_sucess_leader_prepar_challenge-100746066-orig%20(1).webp'); }
-        .education-bg { background-image: url('https://raw.githubusercontent.com/sameera-chathuranga/My-Biography/e14a03ce9f3d8551d219051064db210c74b1f060/library-bookshelves-filled-with-books-classic-literature-and-knowledge-repository_11479587.webp'); }
-        .skills-bg { background-image: url('https://raw.githubusercontent.com/sameera-chathuranga/My-Biography/ecb5ccfa25111167fda6697ba645ec6e1e0652f5/AdobeStock_244900189-scaled.jpg'); }
-        .contact-bg { background-image: url('https://raw.githubusercontent.com/sameera-chathuranga/My-Biography/main/pexels-markus-winkler-1430818-19891092.jpg?raw=true'); }
-
-        /* Glassmorphism Card Style */
-        .glass-card {
-            background: rgba(15, 23, 42, 0.6);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s ease;
-        }
-        .glass-card:hover {
-            background: rgba(15, 23, 42, 0.8);
-            border: 1px solid rgba(79, 70, 229, 0.5);
-            transform: translateY(-5px);
+    <style>
+        body {
+            background-color: #030014;
+            color: #cbd5e1;
+            overflow-x: hidden;
         }
 
-        /* Experience Timeline */
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: -1px;
+        /* Ambient Background Glow - Z-index fixed to be behind everything */
+        .ambient-glow {
+            position: fixed;
             top: 0;
-            bottom: 0;
-            width: 2px;
-            background: linear-gradient(to bottom, #4f46e5, rgba(15, 23, 42, 0));
-        }
-        .timeline-dot {
-            box-shadow: 0 0 0 4px #020617, 0 0 0 5px #4f46e5;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: 
+                radial-gradient(circle at 15% 50%, rgba(79, 70, 229, 0.08), transparent 25%),
+                radial-gradient(circle at 85% 30%, rgba(147, 51, 234, 0.08), transparent 25%);
+            pointer-events: none;
+            z-index: -1;
         }
 
-        /* Skill Card Hover Effect */
-        .skill-card {
-            background: rgba(15, 23, 42, 0.6);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s ease;
+        /* Glassmorphism Utilities */
+        .glass-nav {
+            background: rgba(3, 0, 20, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .bento-card {
+            background: linear-gradient(180deg, rgba(30, 41, 59, 0.4) 0%, rgba(15, 23, 42, 0.6) 100%);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             position: relative;
             overflow: hidden;
         }
-        .skill-card:hover {
-            transform: translateY(-8px) scale(1.03);
-            background: rgba(79, 70, 229, 0.2);
-            box-shadow: 0 10px 30px rgba(79, 70, 229, 0.3);
-        }
-        .skill-card .icon {
-            transition: transform 0.3s ease;
-        }
-        .skill-card:hover .icon {
-            transform: scale(1.2);
+
+        .bento-card::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.5), transparent);
+            opacity: 0;
+            transition: opacity 0.4s ease;
         }
 
-        /* Canvas styling */
-        #hero-canvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; }
+        .bento-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(99, 102, 241, 0.3);
+            box-shadow: 0 10px 40px -10px rgba(99, 102, 241, 0.2);
+        }
+
+        .bento-card:hover::before {
+            opacity: 1;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #030014; }
+        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #475569; }
+
+        /* Typography Accents */
+        .text-gradient {
+            background: linear-gradient(135deg, #e0e7ff 0%, #818cf8 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .section-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 3px;
+            background: #6366f1;
+            border-radius: 2px;
+        }
+
+        .modern-input {
+            background: rgba(30, 41, 59, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            color: white;
+        }
+        .modern-input:focus {
+            background: rgba(30, 41, 59, 0.5);
+            border-color: #6366f1;
+            box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+            outline: none;
+        }
+
+        .timeline-line {
+            background: linear-gradient(to bottom, #6366f1, rgba(99, 102, 241, 0.1));
+        }
     </style>
 </head>
-<body class="bg-slate-950">
-    
-    <!-- Header & Navigation -->
-    <header class="bg-slate-900/80 backdrop-blur-md sticky top-0 z-50">
-        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-2xl font-bold text-white transition-colors logo-name">Sameera <span>Chathuranga</span></a>
-            <div class="space-x-8 text-lg hidden md:flex items-center">
-                <a href="#about" class="nav-link text-slate-300">About</a>
-                <a href="#experience" class="nav-link text-slate-300">Experience</a>
-                <a href="#education" class="nav-link text-slate-300">Education</a>
-                <a href="#skills" class="nav-link text-slate-300">Skills</a>
-                <a href="#contact" class="px-6 py-2 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-full shadow-lg transition-all duration-300 transform hover:scale-105">Contact</a>
+<body class="selection:bg-indigo-500/30">
+
+    <!-- Ambient Background -->
+    <div class="ambient-glow"></div>
+
+    <!-- Floating Navigation -->
+    <div class="fixed top-6 left-0 right-0 z-50 flex justify-center px-4">
+        <nav class="glass-nav rounded-full px-6 py-3 flex items-center gap-8 animate-fade-in-down">
+            <!-- Logo removed here -->
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-400">
+                <a href="#about" class="hover:text-white transition-colors">About</a>
+                <a href="#experience" class="hover:text-white transition-colors">Experience</a>
+                <a href="#education" class="hover:text-white transition-colors">Education</a>
+                <a href="#skills" class="hover:text-white transition-colors">Skills</a>
             </div>
-            <button id="mobile-menu-button" class="md:hidden text-slate-300 hover:text-white" aria-label="Open menu">
-                <i data-lucide="menu" class="h-6 w-6"></i>
+            <a href="#contact" class="bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-semibold px-5 py-2 rounded-full transition-all transform hover:scale-105 shadow-lg shadow-indigo-500/25">
+                Let's Talk
+            </a>
+            <!-- Mobile Menu Trigger -->
+            <button id="mobile-menu-btn" class="md:hidden text-white ml-4">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="18" x2="20" y2="18"/></svg>
             </button>
         </nav>
-    </header>
+    </div>
 
-    <!-- Mobile Menu (Unchanged) -->
-    <div id="mobile-menu" class="fixed top-0 right-0 h-full w-64 bg-slate-900/95 backdrop-blur-lg shadow-2xl z-50" style="transform: translateX(100%); transition: transform 0.3s ease-out;">
-        <div class="p-6">
-            <div class="flex justify-end mb-8">
-                <button id="mobile-menu-close" class="text-slate-300 hover:text-white" aria-label="Close menu">
-                    <i data-lucide="x" class="h-6 w-6"></i>
-                </button>
-            </div>
-            <nav class="flex flex-col space-y-6 text-lg text-center">
-                <a href="#about" class="text-slate-300 hover:text-indigo-400 transition-colors">About</a>
-                <a href="#experience" class="text-slate-300 hover:text-indigo-400 transition-colors">Experience</a>
-                <a href="#education" class="text-slate-300 hover:text-indigo-400 transition-colors">Education</a>
-                <a href="#skills" class="text-slate-300 hover:text-indigo-400 transition-colors">Skills</a>
-                <a href="#contact" class="text-slate-300 hover:text-indigo-400 transition-colors">Contact</a>
-            </nav>
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 z-40 bg-black/95 backdrop-blur-xl transform translate-x-full transition-transform duration-300 flex items-center justify-center">
+        <button id="close-menu-btn" class="absolute top-8 right-8 text-slate-400 hover:text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+        <div class="flex flex-col gap-8 text-center text-2xl font-heading font-semibold text-slate-300">
+            <a href="#about" class="hover:text-indigo-400 transition-colors mobile-link">About</a>
+            <a href="#experience" class="hover:text-indigo-400 transition-colors mobile-link">Experience</a>
+            <a href="#education" class="hover:text-indigo-400 transition-colors mobile-link">Education</a>
+            <a href="#skills" class="hover:text-indigo-400 transition-colors mobile-link">Skills</a>
+            <a href="#contact" class="hover:text-indigo-400 transition-colors mobile-link">Contact</a>
         </div>
     </div>
 
-    <main>
+    <main class="relative z-10 pt-20">
+        
         <!-- Hero Section -->
-        <section id="hero" class="relative min-h-screen flex items-center justify-center p-6 overflow-hidden">
-            <canvas id="hero-canvas"></canvas>
-            <div class="absolute inset-0 bg-slate-950/70 z-10"></div>
-            <div class="relative text-center max-w-4xl mx-auto p-8 z-20">
-                <img src="https://raw.githubusercontent.com/sameera-chathuranga/My-Biography/refs/heads/main/e206552e-7df7-4099-aa6e-933fa59aa77d-1_all_18051.jpg" alt="Sameera Chathuranga" class="mx-auto rounded-full w-40 h-40 object-cover border-4 border-indigo-500 shadow-2xl shadow-indigo-500/40 mb-6 animate-fade-in" style="animation-delay: 0.2s;" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/160x160/0f172a/818cf8?text=SC';">
-                <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight text-white animate-fade-in-up" style="animation-delay: 0.4s;">
-                    Hello, I'm <span class="text-indigo-400">Sameera Chathuranga</span>
-                </h1>
-                <div class="text-2xl md:text-3xl text-slate-300 mt-4 h-12 flex justify-center items-center animate-fade-in-up" style="animation-delay: 0.6s;">
-                    <p id="typing-text">Cost Account Executive</p>
+        <section class="min-h-[90vh] flex flex-col items-center justify-center relative px-6 overflow-hidden">
+            <!-- Animated decorative blobs -->
+            <div class="absolute top-1/4 -left-20 w-72 h-72 bg-indigo-500/20 rounded-full mix-blend-screen filter blur-[80px] animate-blob"></div>
+            <div class="absolute bottom-1/4 -right-20 w-72 h-72 bg-purple-500/20 rounded-full mix-blend-screen filter blur-[80px] animate-blob animation-delay-2000"></div>
+
+            <div class="text-center max-w-4xl relative z-20">
+                <div class="inline-block mb-6 p-1 rounded-full bg-gradient-to-r from-indigo-500 to-purple-500 animate-float">
+                    <img src="https://raw.githubusercontent.com/sameera-chathuranga/My-Biography/refs/heads/main/e206552e-7df7-4099-aa6e-933fa59aa77d-1_all_18051.jpg" 
+                         class="w-32 h-32 rounded-full border-4 border-[#030014] object-cover" 
+                         alt="Sameera Chathuranga"
+                         loading="lazy" 
+                         onerror="this.onerror=null;this.src='https://placehold.co/160x160/0f172a/818cf8?text=SC';">
                 </div>
-                <div class="mt-8 flex flex-wrap justify-center gap-4 animate-fade-in-up" style="animation-delay: 0.8s;">
-                    <a href="#contact" class="inline-flex items-center gap-2 px-8 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-full shadow-lg transition-all duration-300 transform hover:scale-105">
-                        <i data-lucide="send" class="h-5 w-5"></i>
-                        Contact Me
+                
+                <h1 class="text-5xl md:text-7xl lg:text-8xl font-heading font-bold tracking-tight text-white mb-6 leading-tight">
+                    Sameera <br />
+                    <span class="text-gradient">Chathuranga</span>
+                </h1>
+                
+                <p class="text-xl md:text-2xl text-slate-400 mb-10 max-w-2xl mx-auto font-light">
+                    Driving financial efficiency as a <span class="text-indigo-400 font-medium">Cost Account Executive</span> through data-driven analysis and strategic budgeting.
+                </p>
+
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <a href="#experience" class="group bg-white text-slate-900 px-8 py-3.5 rounded-full font-bold transition-all hover:bg-slate-200 flex items-center gap-2">
+                        View Work
+                        <i data-lucide="arrow-down" class="w-4 h-4 group-hover:translate-y-1 transition-transform"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/sameera-chathuranga307" target="_blank" class="px-8 py-3.5 rounded-full border border-slate-700 text-white hover:bg-slate-800/50 transition-all font-medium">
+                        LinkedIn Profile
                     </a>
                 </div>
             </div>
         </section>
 
-        <!-- About Me Section -->
-        <section id="about" class="py-24 bg-section about-bg">
-            <div class="absolute inset-0 bg-slate-950/80"></div>
-            <div class="relative z-10 container mx-auto px-6 max-w-4xl text-center">
-                <h2 class="text-4xl md:text-5xl font-bold text-white mb-4 animate-fade-in">About Me</h2>
-                <div class="w-24 h-1 bg-indigo-500 mx-auto mb-12"></div>
-                <div class="glass-card rounded-2xl shadow-2xl p-8 md:p-12 text-lg text-slate-300 animate-fade-in-up">
-                    <p class="mb-4">
-                        I am a results-driven Cost Account Executive with a BSc (Hons) in Accountancy and Finance. Skilled in financial analysis and costing, I combine strong academic knowledge with hands-on experience to enhance organisational financial performance.
-                    </p>
-                    <p>
-                        I am passionate about streamlining cost structures, delivering actionable insights, and supporting strategic decision-making in the dynamic finance and accounting sector.
-                    </p>
+        <!-- Bento Grid Layout -->
+        <div class="max-w-7xl mx-auto px-6 py-24 space-y-32">
+            
+            <!-- About Section -->
+            <section id="about" class="scroll-mt-32">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-heading font-bold text-white mb-4">About Me</h2>
+                    <div class="h-1 w-20 bg-indigo-500 mx-auto rounded-full"></div>
                 </div>
-            </div>
-        </section>
-
-        <!-- Professional Experience Section -->
-        <section id="experience" class="py-24 bg-section experience-bg">
-            <div class="absolute inset-0 bg-slate-950/80"></div>
-            <div class="relative z-10 container mx-auto px-6 max-w-5xl">
-                <h2 class="text-4xl md:text-5xl font-bold text-center text-white mb-16 animate-fade-in">Professional Experience</h2>
-                <div class="relative timeline ml-4 md:ml-0">
-                    <!-- Experience Item 1 -->
-                    <div class="mb-12 pl-10 md:pl-12 relative animate-fade-in-up">
-                        <div class="absolute -left-3 top-1 h-6 w-6 bg-indigo-500 rounded-full timeline-dot"></div>
-                        <h3 class="text-2xl font-bold text-indigo-400 mb-1">Cost Account Executive</h3>
-                        <p class="text-slate-400 text-md mb-3">Star Holdings International PVT Ltd | Nov 2023 - Present</p>
-                        <ul class="list-disc list-inside text-slate-300 space-y-2">
-                            <li>Prepared and analysed cost reports to support financial planning and control.</li>
-                            <li>Monitored, tracked, and reported on cost variances to ensure budget adherence.</li>
-                            <li>Collaborated with departments to collect and validate data for cost allocation.</li>
-                            <li>Supported management in pricing strategies by providing detailed cost breakdowns.</li>
-                            <li>Contributed to improving cost efficiency and profitability through analysis.</li>
-                        </ul>
+                
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div class="bento-card p-8 md:p-12 rounded-3xl h-full flex flex-col justify-center">
+                        <i data-lucide="user" class="w-10 h-10 text-indigo-400 mb-6"></i>
+                        <p class="text-lg text-slate-300 leading-relaxed mb-6">
+                            I am a results-driven professional with a <strong class="text-white">BSc (Hons) in Accountancy and Finance</strong>. I specialize in bridging the gap between raw financial data and strategic decision-making.
+                        </p>
+                        <p class="text-lg text-slate-300 leading-relaxed">
+                            My passion lies in streamlining cost structures and enhancing profitability in the dynamic finance sector. I combine academic rigor with practical expertise to deliver actionable insights.
+                        </p>
                     </div>
-                    <!-- Experience Item 2 -->
-                    <div class="mb-12 pl-10 md:pl-12 relative animate-fade-in-up" style="animation-delay: 0.2s;">
-                        <div class="absolute -left-3 top-1 h-6 w-6 bg-indigo-500 rounded-full timeline-dot"></div>
-                        <h3 class="text-2xl font-bold text-indigo-400 mb-1">Finance Trainee</h3>
-                        <p class="text-slate-400 text-md mb-3">Sri Lanka Port Authority | Mar 2023 - Sep 2023</p>
-                        <ul class="list-disc list-inside text-slate-300 space-y-2">
-                            <li>Assisted in preparing and analysing financial statements, ensuring accuracy and compliance.</li>
-                            <li>Supported costing, budgeting, and variance analysis.</li>
-                            <li>Processed and reconciled financial transactions, maintaining accurate records.</li>
-                            <li>Collaborated on special projects, audits, and month-end closing activities.</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Education Section -->
-        <section id="education" class="py-24 bg-section education-bg">
-            <div class="absolute inset-0 bg-slate-950/80"></div>
-            <div class="relative z-10 container mx-auto px-6 max-w-6xl">
-                <h2 class="text-4xl md:text-5xl font-bold text-center text-white mb-16 animate-fade-in">Education & Certifications</h2>
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Education Cards -->
-                    <div class="glass-card p-6 rounded-xl animate-fade-in-up" style="animation-delay: 0.1s;">
-                        <h3 class="text-xl font-bold text-indigo-400 mb-1">B.Sc. (Hons) Accountancy & Business Finance</h3>
-                        <p class="text-slate-400">Wayamba University of Sri Lanka | 2019 - 2023</p>
-                    </div>
-                    <div class="glass-card p-6 rounded-xl animate-fade-in-up" style="animation-delay: 0.2s;">
-                        <h3 class="text-xl font-bold text-indigo-400 mb-1">Certified Management Accountant (CMA)</h3>
-                        <p class="text-slate-400">CMA Sri Lanka | Managerial Level Completed</p>
-                    </div>
-                    <div class="glass-card p-6 rounded-xl animate-fade-in-up" style="animation-delay: 0.3s;">
-                        <h3 class="text-xl font-bold text-indigo-400 mb-1">CA Sri Lanka Business Level I</h3>
-                        <p class="text-slate-400">Successfully completed the examination.</p>
-                    </div>
-                    <div class="glass-card p-6 rounded-xl animate-fade-in-up" style="animation-delay: 0.4s;">
-                        <h3 class="text-xl font-bold text-indigo-400 mb-1">G.C.E Advanced & Ordinary Level</h3>
-                        <p class="text-slate-400">G/Batemulla National School</p>
-                    </div>
-                    <div class="glass-card p-6 rounded-xl animate-fade-in-up" style="animation-delay: 0.5s;">
-                        <h3 class="text-xl font-bold text-indigo-400 mb-1">Harnessing the Power of Data with Power BI</h3>
-                        <p class="text-slate-400">Microsoft | Issued Oct 2024</p>
-                    </div>
-                    <div class="glass-card p-6 rounded-xl animate-fade-in-up" style="animation-delay: 0.6s;">
-                        <h3 class="text-xl font-bold text-indigo-400 mb-1">Preparing Data for Analysis with Microsoft Excel</h3>
-                        <p class="text-slate-400">Microsoft | Issued Sep 2024</p>
-                    </div>
-                    <div class="glass-card p-6 rounded-xl animate-fade-in-up" style="animation-delay: 0.7s;">
-                        <h3 class="text-xl font-bold text-indigo-400 mb-1">Diploma in Financial Accounting</h3>
-                        <p class="text-slate-400">Alison | Issued Aug 2024</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Skills Section -->
-        <section id="skills" class="py-24 bg-section skills-bg">
-            <div class="absolute inset-0 bg-slate-950/80"></div>
-            <div class="relative z-10 container mx-auto px-6 max-w-6xl text-center">
-                <h2 class="text-4xl md:text-5xl font-bold text-white mb-6 animate-fade-in">My Skill Set</h2>
-                <p class="max-w-3xl mx-auto text-slate-400 text-lg mb-16 animate-fade-in-up" style="animation-delay: 0.2s;">
-                    A blend of technical expertise and professional skills, enabling me to deliver comprehensive financial insights and drive business performance.
-                </p>
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
-                    <!-- Skill Cards -->
-                    <div class="skill-card p-6 rounded-xl flex flex-col items-center justify-center animate-fade-in-up" style="animation-delay: 0s;">
-                        <i data-lucide="bar-chart-2" class="h-12 w-12 text-sky-400 mb-4 icon"></i>
-                        <h3 class="text-lg font-semibold text-white">Financial Analysis</h3>
-                    </div>
-                    <div class="skill-card p-6 rounded-xl flex flex-col items-center justify-center animate-fade-in-up" style="animation-delay: 0.1s;">
-                        <i data-lucide="calculator" class="h-12 w-12 text-teal-400 mb-4 icon"></i>
-                        <h3 class="text-lg font-semibold text-white">Costing & Budgeting</h3>
-                    </div>
-                    <div class="skill-card p-6 rounded-xl flex flex-col items-center justify-center animate-fade-in-up" style="animation-delay: 0.2s;">
-                        <i data-lucide="trending-up" class="h-12 w-12 text-emerald-400 mb-4 icon"></i>
-                        <h3 class="text-lg font-semibold text-white">Financial Modeling</h3>
-                    </div>
-                    <div class="skill-card p-6 rounded-xl flex flex-col items-center justify-center animate-fade-in-up" style="animation-delay: 0.3s;">
-                        <i data-lucide="pie-chart" class="h-12 w-12 text-rose-400 mb-4 icon"></i>
-                        <h3 class="text-lg font-semibold text-white">Power BI & Data Viz</h3>
-                    </div>
-                    <div class="skill-card p-6 rounded-xl flex flex-col items-center justify-center animate-fade-in-up" style="animation-delay: 0.4s;">
-                        <i data-lucide="file-spreadsheet" class="h-12 w-12 text-amber-400 mb-4 icon"></i>
-                        <h3 class="text-lg font-semibold text-white">Advanced Excel</h3>
-                    </div>
-                    <div class="skill-card p-6 rounded-xl flex flex-col items-center justify-center animate-fade-in-up" style="animation-delay: 0.5s;">
-                        <i data-lucide="database" class="h-12 w-12 text-violet-400 mb-4 icon"></i>
-                        <h3 class="text-lg font-semibold text-white">ERP Systems</h3>
-                    </div>
-                    <div class="skill-card p-6 rounded-xl flex flex-col items-center justify-center animate-fade-in-up" style="animation-delay: 0.6s;">
-                        <i data-lucide="lightbulb" class="h-12 w-12 text-cyan-400 mb-4 icon"></i>
-                        <h3 class="text-lg font-semibold text-white">Problem Solving</h3>
-                    </div>
-                    <div class="skill-card p-6 rounded-xl flex flex-col items-center justify-center animate-fade-in-up" style="animation-delay: 0.7s;">
-                        <i data-lucide="users" class="h-12 w-12 text-fuchsia-400 mb-4 icon"></i>
-                        <h3 class="text-lg font-semibold text-white">Team Collaboration</h3>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact" class="py-24 bg-section contact-bg">
-            <div class="absolute inset-0 bg-slate-950/80"></div>
-            <div class="relative z-10 container mx-auto px-4 max-w-2xl">
-                <h2 class="text-4xl md:text-5xl font-bold text-center text-white mb-12 animate-fade-in">Get in Touch</h2>
-                <div class="glass-card rounded-2xl shadow-2xl p-8 animate-fade-in-up">
-                    <p class="text-slate-300 text-lg mb-6 text-center">
-                        I'm always open to new opportunities and collaborations. Feel free to reach out!
-                    </p>
-                    <form action="https://formspree.io/f/xgvzdqda" method="POST" id="contact-form" class="space-y-4">
-                        <input type="text" name="name" placeholder="Your Name" required class="w-full px-4 py-3 bg-slate-800/60 border border-slate-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-indigo-500">
-                        <input type="email" name="email" placeholder="Your Email" required class="w-full px-4 py-3 bg-slate-800/60 border border-slate-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-indigo-500">
-                        <textarea name="message" rows="4" placeholder="Your Message..." required class="w-full px-4 py-3 bg-slate-800/60 border border-slate-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"></textarea>
-                        <div class="text-center">
-                            <button type="submit" id="submit-button" class="px-8 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-full shadow-lg transition-all duration-300 transform hover:scale-105">
-                                Send Message
-                            </button>
+                    
+                    <div class="grid grid-cols-2 gap-4 h-full">
+                        <div class="bento-card p-6 rounded-3xl col-span-2 flex flex-col justify-center items-center text-center">
+                            <h3 class="text-4xl font-heading font-bold text-indigo-400 mb-2">3+</h3>
+                            <p class="text-sm text-slate-400 uppercase tracking-wider">Years Experience</p>
                         </div>
-                    </form>
-                    <div id="form-message-box" class="mt-4 px-4 py-2 rounded-lg text-center text-white hidden"></div>
+                        <!-- "10+ Projects Led" removed -->
+                        <div class="bento-card p-6 rounded-3xl col-span-2 flex items-center justify-between">
+                            <div>
+                                <h4 class="text-white font-bold text-lg">Open to Work</h4>
+                                <p class="text-slate-400 text-sm">Available for new opportunities</p>
+                            </div>
+                            <div class="w-3 h-3 bg-green-500 rounded-full animate-pulse shadow-[0_0_10px_rgba(34,197,94,0.5)]"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Experience Section -->
+            <section id="experience" class="scroll-mt-32">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-heading font-bold text-white mb-4">Experience</h2>
+                    <p class="text-slate-400">My professional journey in finance</p>
+                </div>
+
+                <div class="relative max-w-4xl mx-auto">
+                    <!-- Vertical Line -->
+                    <div class="absolute left-0 md:left-1/2 top-0 bottom-0 w-px timeline-line transform md:-translate-x-1/2"></div>
+
+                    <!-- Item 1 -->
+                    <div class="relative z-10 mb-16 group">
+                        <div class="md:flex items-center justify-between w-full">
+                            <div class="hidden md:block w-5/12 text-right pr-8">
+                                <h3 class="text-2xl font-heading font-bold text-white group-hover:text-indigo-400 transition-colors">Cost Account Executive</h3>
+                                <p class="text-indigo-300 mb-2">Star Holdings International</p>
+                                <span class="inline-block px-3 py-1 bg-slate-800 rounded-full text-xs text-slate-400 border border-slate-700">Nov 2023 - Present</span>
+                            </div>
+                            
+                            <div class="absolute left-[-5px] md:left-1/2 w-3 h-3 bg-indigo-500 rounded-full border-4 border-[#030014] transform md:-translate-x-1/2 group-hover:scale-150 transition-transform shadow-[0_0_15px_rgba(99,102,241,0.5)]"></div>
+
+                            <div class="w-full md:w-5/12 pl-8 md:pl-8">
+                                <!-- Mobile Title -->
+                                <div class="md:hidden mb-4">
+                                    <h3 class="text-xl font-heading font-bold text-white">Cost Account Executive</h3>
+                                    <p class="text-indigo-400">Star Holdings International</p>
+                                    <p class="text-sm text-slate-500 mt-1">Nov 2023 - Present</p>
+                                </div>
+                                <div class="bento-card p-6 rounded-2xl">
+                                    <ul class="space-y-3 text-slate-300 text-sm">
+                                        <li class="flex items-start gap-2">
+                                            <i data-lucide="check-circle-2" class="w-4 h-4 text-indigo-500 mt-0.5 shrink-0"></i>
+                                            <span>Analysed cost reports for financial planning.</span>
+                                        </li>
+                                        <li class="flex items-start gap-2">
+                                            <i data-lucide="check-circle-2" class="w-4 h-4 text-indigo-500 mt-0.5 shrink-0"></i>
+                                            <span>Tracked cost variances ensuring budget adherence.</span>
+                                        </li>
+                                        <li class="flex items-start gap-2">
+                                            <i data-lucide="check-circle-2" class="w-4 h-4 text-indigo-500 mt-0.5 shrink-0"></i>
+                                            <span>Supported pricing strategies with data insights.</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 2 -->
+                    <div class="relative z-10 group">
+                        <div class="md:flex items-center justify-between w-full flex-row-reverse">
+                            <div class="hidden md:block w-5/12 text-left pl-8">
+                                <h3 class="text-2xl font-heading font-bold text-white group-hover:text-indigo-400 transition-colors">Finance Trainee</h3>
+                                <p class="text-indigo-300 mb-2">Sri Lanka Port Authority</p>
+                                <span class="inline-block px-3 py-1 bg-slate-800 rounded-full text-xs text-slate-400 border border-slate-700">Mar 2023 - Sep 2023</span>
+                            </div>
+                            
+                            <div class="absolute left-[-5px] md:left-1/2 w-3 h-3 bg-purple-500 rounded-full border-4 border-[#030014] transform md:-translate-x-1/2 group-hover:scale-150 transition-transform shadow-[0_0_15px_rgba(168,85,247,0.5)]"></div>
+
+                            <div class="w-full md:w-5/12 pl-8 md:pr-8">
+                                <!-- Mobile Title -->
+                                <div class="md:hidden mb-4">
+                                    <h3 class="text-xl font-heading font-bold text-white">Finance Trainee</h3>
+                                    <p class="text-indigo-400">Sri Lanka Port Authority</p>
+                                    <p class="text-sm text-slate-500 mt-1">Mar 2023 - Sep 2023</p>
+                                </div>
+                                <div class="bento-card p-6 rounded-2xl">
+                                    <ul class="space-y-3 text-slate-300 text-sm">
+                                        <li class="flex items-start gap-2">
+                                            <i data-lucide="check-circle-2" class="w-4 h-4 text-purple-500 mt-0.5 shrink-0"></i>
+                                            <span>Assisted in financial statement preparation.</span>
+                                        </li>
+                                        <li class="flex items-start gap-2">
+                                            <i data-lucide="check-circle-2" class="w-4 h-4 text-purple-500 mt-0.5 shrink-0"></i>
+                                            <span>Supported costing, budgeting, and variance analysis.</span>
+                                        </li>
+                                        <li class="flex items-start gap-2">
+                                            <i data-lucide="check-circle-2" class="w-4 h-4 text-purple-500 mt-0.5 shrink-0"></i>
+                                            <span>Reconciled financial transactions accurately.</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Education & Skills Grid -->
+            <div class="grid lg:grid-cols-12 gap-8">
+                
+                <!-- Education Column -->
+                <div class="lg:col-span-7 space-y-8" id="education">
+                    <h2 class="text-3xl font-heading font-bold text-white mb-8 flex items-center gap-3">
+                        <i data-lucide="graduation-cap" class="text-indigo-500"></i> Education
+                    </h2>
+                    
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <div class="bento-card p-6 rounded-2xl">
+                            <div class="text-xs font-bold text-indigo-400 uppercase tracking-widest mb-2">Degree</div>
+                            <h3 class="text-white font-bold text-lg mb-1">B.Sc. (Hons) Accountancy</h3>
+                            <p class="text-slate-400 text-sm">Wayamba University of Sri Lanka</p>
+                            <p class="text-slate-500 text-xs mt-2">2019 - 2023</p>
+                        </div>
+                        <div class="bento-card p-6 rounded-2xl">
+                            <div class="text-xs font-bold text-purple-400 uppercase tracking-widest mb-2">Certification</div>
+                            <h3 class="text-white font-bold text-lg mb-1">CMA Sri Lanka</h3>
+                            <p class="text-slate-400 text-sm">Managerial Level Completed</p>
+                        </div>
+                        <div class="bento-card p-6 rounded-2xl">
+                            <div class="text-xs font-bold text-blue-400 uppercase tracking-widest mb-2">Certification</div>
+                            <h3 class="text-white font-bold text-lg mb-1">Microsoft Power BI</h3>
+                            <p class="text-slate-400 text-sm">Data Harnessing Certification</p>
+                            <p class="text-slate-500 text-xs mt-2">Oct 2024</p>
+                        </div>
+                         <div class="bento-card p-6 rounded-2xl">
+                            <div class="text-xs font-bold text-emerald-400 uppercase tracking-widest mb-2">Certification</div>
+                            <h3 class="text-white font-bold text-lg mb-1">CA Sri Lanka</h3>
+                            <p class="text-slate-400 text-sm">Business Level I Completed</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skills Column -->
+                <div class="lg:col-span-5" id="skills">
+                    <h2 class="text-3xl font-heading font-bold text-white mb-8 flex items-center gap-3">
+                        <i data-lucide="cpu" class="text-purple-500"></i> Skills
+                    </h2>
+                    
+                    <div class="bento-card p-8 rounded-3xl h-fit">
+                        <div class="flex flex-wrap gap-3">
+                            <span class="px-4 py-2 bg-slate-800/50 border border-slate-700 rounded-lg text-slate-300 text-sm hover:border-indigo-500 hover:text-white transition-colors cursor-default">Financial Analysis</span>
+                            <span class="px-4 py-2 bg-slate-800/50 border border-slate-700 rounded-lg text-slate-300 text-sm hover:border-indigo-500 hover:text-white transition-colors cursor-default">Costing</span>
+                            <span class="px-4 py-2 bg-slate-800/50 border border-slate-700 rounded-lg text-slate-300 text-sm hover:border-indigo-500 hover:text-white transition-colors cursor-default">Budgeting</span>
+                            <span class="px-4 py-2 bg-slate-800/50 border border-slate-700 rounded-lg text-slate-300 text-sm hover:border-indigo-500 hover:text-white transition-colors cursor-default">Power BI</span>
+                            <span class="px-4 py-2 bg-slate-800/50 border border-slate-700 rounded-lg text-slate-300 text-sm hover:border-indigo-500 hover:text-white transition-colors cursor-default">Advanced Excel</span>
+                            <span class="px-4 py-2 bg-slate-800/50 border border-slate-700 rounded-lg text-slate-300 text-sm hover:border-indigo-500 hover:text-white transition-colors cursor-default">ERP Systems</span>
+                            <span class="px-4 py-2 bg-slate-800/50 border border-slate-700 rounded-lg text-slate-300 text-sm hover:border-indigo-500 hover:text-white transition-colors cursor-default">Problem Solving</span>
+                            <span class="px-4 py-2 bg-slate-800/50 border border-slate-700 rounded-lg text-slate-300 text-sm hover:border-indigo-500 hover:text-white transition-colors cursor-default">Team Leadership</span>
+                        </div>
+
+                        <div class="mt-8 pt-8 border-t border-slate-700/50">
+                            <h4 class="text-white font-bold mb-4 text-sm uppercase tracking-wide">Tools</h4>
+                            <div class="flex gap-6 text-slate-400">
+                                <i data-lucide="file-spreadsheet" class="w-8 h-8 hover:text-green-400 transition-colors" title="Excel"></i>
+                                <i data-lucide="bar-chart-2" class="w-8 h-8 hover:text-yellow-400 transition-colors" title="Power BI"></i>
+                                <i data-lucide="pie-chart" class="w-8 h-8 hover:text-blue-400 transition-colors" title="ERP"></i>
+                                <i data-lucide="database" class="w-8 h-8 hover:text-purple-400 transition-colors" title="Databases"></i>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </section>
+
+            <!-- Contact Section -->
+            <section id="contact" class="scroll-mt-32 max-w-3xl mx-auto text-center">
+                <h2 class="text-3xl md:text-5xl font-heading font-bold text-white mb-6">Let's Work Together</h2>
+                <p class="text-slate-400 mb-10 text-lg">Have a project in mind or want to discuss financial strategies? I'm just a message away.</p>
+                
+                <div class="bento-card p-8 md:p-10 rounded-3xl text-left relative overflow-hidden group">
+                    <!-- Glow effect inside form -->
+                    <div class="absolute top-0 right-0 w-64 h-64 bg-indigo-600/10 rounded-full blur-[60px] -z-10 group-hover:bg-indigo-600/20 transition-colors"></div>
+
+                    <form action="https://formspree.io/f/xgvzdqda" method="POST" id="contact-form" class="space-y-5">
+                        <div class="grid md:grid-cols-2 gap-5">
+                            <div class="space-y-2">
+                                <label class="text-sm font-medium text-slate-400 ml-1">Name</label>
+                                <input type="text" name="name" required class="modern-input w-full px-5 py-4 rounded-xl text-white" placeholder="John Doe">
+                            </div>
+                            <div class="space-y-2">
+                                <label class="text-sm font-medium text-slate-400 ml-1">Email</label>
+                                <input type="email" name="email" required class="modern-input w-full px-5 py-4 rounded-xl text-white" placeholder="john@example.com">
+                            </div>
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-sm font-medium text-slate-400 ml-1">Message</label>
+                            <textarea name="message" rows="4" required class="modern-input w-full px-5 py-4 rounded-xl text-white resize-none" placeholder="How can I help you?"></textarea>
+                        </div>
+                        <button type="submit" id="submit-button" class="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-4 rounded-xl transition-all transform active:scale-95 shadow-lg shadow-indigo-600/25 flex justify-center items-center gap-2">
+                            <span>Send Message</span>
+                            <i data-lucide="send" class="w-4 h-4"></i>
+                        </button>
+                    </form>
+                    <div id="form-message-box" class="mt-4 text-center hidden p-3 rounded-lg"></div>
+                </div>
+            </section>
+
+        </div>
     </main>
 
     <!-- Footer -->
-    <footer class="bg-slate-950 py-8 text-center text-slate-400">
-        <div class="container mx-auto px-4">
-            <div class="flex justify-center space-x-6 mb-4">
-                <a href="https://www.linkedin.com/in/sameera-chathuranga307?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="text-slate-400 hover:text-indigo-400 transition-colors"><i data-lucide="linkedin" class="h-6 w-6"></i></a>
-                <a href="https://www.facebook.com/share/1AM8WGTAd9/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="text-slate-400 hover:text-indigo-400 transition-colors"><i data-lucide="facebook" class="h-6 w-6"></i></a>
-                <a href="https://x.com/Sameera________?t=sYhddCefBGLQRP9ttk6SrA&s=09" target="_blank" rel="noopener noreferrer" aria-label="X" class="text-slate-400 hover:text-indigo-400 transition-colors"><i data-lucide="twitter" class="h-6 w-6"></i></a>
+    <footer class="border-t border-slate-800 mt-20 bg-[#02010a]">
+        <div class="max-w-7xl mx-auto px-6 py-12 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="text-center md:text-left">
+                <span class="text-2xl font-heading font-bold text-white tracking-tight">SC<span class="text-indigo-400">.</span></span>
+                <p class="text-slate-500 text-sm mt-1">&copy; <span id="year"></span> Sameera Chathuranga</p>
             </div>
-            <p>&copy; <span id="year"></span> Sameera Chathuranga. All Rights Reserved.</p>
+            
+            <div class="flex gap-6">
+                <a href="https://www.linkedin.com/in/sameera-chathuranga307" target="_blank" class="text-slate-400 hover:text-white transition-colors bg-slate-900 p-3 rounded-full hover:bg-indigo-600"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
+                <a href="https://www.facebook.com/share/1AM8WGTAd9/" target="_blank" class="text-slate-400 hover:text-white transition-colors bg-slate-900 p-3 rounded-full hover:bg-indigo-600"><i data-lucide="facebook" class="w-5 h-5"></i></a>
+                <a href="https://x.com/Sameera________" target="_blank" class="text-slate-400 hover:text-white transition-colors bg-slate-900 p-3 rounded-full hover:bg-indigo-600"><i data-lucide="twitter" class="w-5 h-5"></i></a>
+            </div>
         </div>
     </footer>
 
     <script>
-        lucide.createIcons();
+        // Initialize Icons Safety Check
+        if (typeof lucide !== 'undefined') {
+            lucide.createIcons();
+        }
 
-        document.addEventListener('DOMContentLoaded', () => {
-            // Mobile Menu Logic
-            const mobileMenuButton = document.getElementById('mobile-menu-button');
-            const mobileMenu = document.getElementById('mobile-menu');
-            const mobileMenuClose = document.getElementById('mobile-menu-close');
-            const toggleMenu = () => mobileMenu.style.transform = mobileMenu.style.transform === 'translateX(0%)' ? 'translateX(100%)' : 'translateX(0%)';
-            mobileMenuButton.addEventListener('click', toggleMenu);
-            mobileMenuClose.addEventListener('click', toggleMenu);
-            mobileMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', toggleMenu));
+        // Copyright Year
+        document.getElementById('year').textContent = new Date().getFullYear();
 
-            // Set Copyright Year
-            document.getElementById('year').textContent = new Date().getFullYear();
-            
-            // Active navigation link on scroll
-            const sections = document.querySelectorAll('section[id]');
-            const navLinks = document.querySelectorAll('header nav a.nav-link');
+        // Mobile Menu Logic
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const closeMenuBtn = document.getElementById('close-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
 
-            const observerOptions = {
-                root: null,
-                rootMargin: '0px',
-                threshold: 0.4 // 40% of the section should be visible
-            };
+        function toggleMenu() {
+            const isHidden = mobileMenu.classList.contains('translate-x-full');
+            if (isHidden) {
+                mobileMenu.classList.remove('translate-x-full');
+                document.body.style.overflow = 'hidden'; 
+            } else {
+                mobileMenu.classList.add('translate-x-full');
+                document.body.style.overflow = '';
+            }
+        }
 
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const id = entry.target.getAttribute('id');
-                        navLinks.forEach(link => {
-                            link.classList.remove('active');
-                            if (link.getAttribute('href') === `#${id}`) {
-                                link.classList.add('active');
-                            }
-                        });
-                    }
-                });
-            }, observerOptions);
+        if (mobileMenuBtn) mobileMenuBtn.addEventListener('click', toggleMenu);
+        if (closeMenuBtn) closeMenuBtn.addEventListener('click', toggleMenu);
+        mobileLinks.forEach(link => link.addEventListener('click', toggleMenu));
 
-            sections.forEach(section => {
-                observer.observe(section);
-            });
+        // Form Logic
+        const form = document.getElementById('contact-form');
+        const messageBox = document.getElementById('form-message-box');
+        const submitButton = document.getElementById('submit-button');
 
-
-            // Contact Form
-            const form = document.getElementById('contact-form');
-            const messageBox = document.getElementById('form-message-box');
+        if (form) {
             form.addEventListener('submit', async (e) => {
                 e.preventDefault();
-                const submitButton = document.getElementById('submit-button');
+                const originalBtnContent = submitButton.innerHTML;
                 submitButton.disabled = true;
-                submitButton.innerHTML = 'Sending...';
+                submitButton.innerHTML = '<span class="animate-pulse">Sending...</span>';
+                
                 try {
                     const response = await fetch(form.action, {
                         method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' }
                     });
+                    
                     if (response.ok) {
-                        messageBox.textContent = 'Message sent successfully!';
-                        messageBox.className = 'mt-4 px-4 py-2 rounded-lg text-center text-white bg-green-500';
+                        messageBox.className = 'mt-4 p-3 rounded-lg text-center bg-green-500/10 text-green-400 border border-green-500/20';
+                        messageBox.innerHTML = 'Message sent successfully! I will get back to you soon.';
+                        messageBox.classList.remove('hidden');
                         form.reset();
-                    } else { throw new Error('Network response was not ok.'); }
+                    } else { throw new Error('Failed'); }
                 } catch (error) {
-                    messageBox.textContent = 'Error sending message. Please try again.';
-                    messageBox.className = 'mt-4 px-4 py-2 rounded-lg text-center text-white bg-red-500';
+                    messageBox.className = 'mt-4 p-3 rounded-lg text-center bg-red-500/10 text-red-400 border border-red-500/20';
+                    messageBox.innerHTML = 'Something went wrong. Please try again.';
+                    messageBox.classList.remove('hidden');
                 } finally {
                     submitButton.disabled = false;
-                    submitButton.innerHTML = 'Send Message';
-                    setTimeout(() => messageBox.className += ' hidden', 5000);
+                    submitButton.innerHTML = originalBtnContent;
+                    setTimeout(() => messageBox.classList.add('hidden'), 5000);
                 }
             });
-
-            // Hero Canvas Animation
-            const canvas = document.getElementById('hero-canvas');
-            const ctx = canvas.getContext('2d');
-            let particles = [];
-            const particleCount = 80;
-            const maxDistance = 120;
-            let mouse = { x: null, y: null, radius: 150 };
-            window.addEventListener('mousemove', e => { mouse.x = e.x; mouse.y = e.y; });
-            window.addEventListener('mouseout', () => { mouse.x = null; mouse.y = null; });
-            
-            const resizeCanvas = () => {
-                canvas.width = window.innerWidth;
-                canvas.height = document.getElementById('hero').offsetHeight;
-                particles = [];
-                for (let i = 0; i < particleCount; i++) particles.push(new Particle());
-            };
-
-            class Particle {
-                constructor() {
-                    this.x = Math.random() * canvas.width;
-                    this.y = Math.random() * canvas.height;
-                    this.size = Math.random() * 2 + 1;
-                    this.speedX = Math.random() * 1 - 0.5;
-                    this.speedY = Math.random() * 1 - 0.5;
-                }
-                update() {
-                    if (this.x > canvas.width || this.x < 0) this.speedX *= -1;
-                    if (this.y > canvas.height || this.y < 0) this.speedY *= -1;
-                    
-                    let dx = mouse.x - this.x;
-                    let dy = mouse.y - this.y;
-                    let distance = Math.sqrt(dx*dx + dy*dy);
-                    if(distance < mouse.radius) {
-                        this.x += this.speedX * 3;
-                        this.y += this.speedY * 3;
-                    } else {
-                        this.x += this.speedX;
-                        this.y += this.speedY;
-                    }
-                }
-                draw() {
-                    ctx.fillStyle = 'rgba(79, 70, 229, 0.6)';
-                    ctx.beginPath();
-                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                    ctx.fill();
-                }
-            }
-
-            function connect() {
-                for (let a = 0; a < particles.length; a++) {
-                    for (let b = a; b < particles.length; b++) {
-                        let distance = ((particles[a].x - particles[b].x) * (particles[a].x - particles[b].x))
-                            + ((particles[a].y - particles[b].y) * (particles[a].y - particles[b].y));
-                        if (distance < (maxDistance * maxDistance)) {
-                            ctx.strokeStyle = `rgba(79, 70, 229, ${1 - distance / (maxDistance*maxDistance)})`;
-                            ctx.lineWidth = 0.5;
-                            ctx.beginPath();
-                            ctx.moveTo(particles[a].x, particles[a].y);
-                            ctx.lineTo(particles[b].x, particles[b].y);
-                            ctx.stroke();
-                        }
-                    }
-                }
-            }
-            
-            function animate() {
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-                for (let i = 0; i < particles.length; i++) {
-                    particles[i].update();
-                    particles[i].draw();
-                }
-                connect();
-                requestAnimationFrame(animate);
-            }
-            
-            window.addEventListener('resize', resizeCanvas);
-            resizeCanvas();
-            animate();
-        });
+        }
     </script>
 </body>
 </html>
-
